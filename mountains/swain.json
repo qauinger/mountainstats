@@ -1,0 +1,17 @@
+{
+    "name": "Swain",
+    "webpage": "https://www.swain.com/",
+    "region": "Swain, NY",
+    "data": {
+        "lifts": [
+            {
+                "name": "Quad 1"
+            }
+        ],
+        "trails": [
+            {
+                "name": "Upper Robinson Run"
+            }
+        ]
+    }
+}
