@@ -4,20 +4,33 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mountain Stats</title>
+        <title>MountainStats</title>
+        <link rel="icon" type="image/x-icon" href="icon.png" />
         <link rel="stylesheet" href="main.css">
         <script src="index.js"></script>
-        <script src="components.js"></script>
     </head>
-    <body class="dark-theme">
-        <div class="list">
-            <h1>Choose a mountain:</h1>
-            <ol id="mountains">
-                <!-- List of mountains will be appended here on load. -->
-            </ol>
-            <!-- <iframe src = "render.html" width = "555" height = "200"></iframe> -->
+    <body>
+        <div id="container">
+		    <div id="header">
+                <ol id="header-hypers">
+                    <li><a href="index"><img src="banner.png" alt="MountainStats"></a></li>
+                </ol>
+            </div>
+		    <div id="body">
+		    	<main id="main">
+		    		<div class="innertube">
+		    			<h3 id="title">Choose a mountain:</h3>
+		    			<ol id="mtn-list">
+		    				<!-- Mountain list will be generated here. -->
+		    			</ol>
+		    		</div>
+		    	</main>
+		    </div>
+            <div id="footer">
+                <ol id="footer-hypers">
+                    <li><a href="https://github.com/qauinger/mountainstats/" target="_blank">Contribute</a></li>
+                </ol>
+            </div>
         </div>
-        <noscript>You need to enable JavaScript to view the full site.</noscript>
-    </body>
-    <footer-component></footer-component>
+	</body>
 </html>
