@@ -6,29 +6,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MountainStats</title>
         <link rel="icon" type="image/x-icon" href="icon.png">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="render.css">
         <script>
             (async () => {
-                fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}`).then(response => {
-                    if (response.ok) {
-                        return response.json()[getParam('m')];
-                    } else if(response.status === 404) {
-                        return Promise.reject('error 404');
-                    } else {
-                        return Promise.reject('some other error: ' + response.status);
+                window.onload = function() {
+                    var canvas = document.getElementById('render');
+                    var ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    var img = new Image();
+                    img.src = `http://mountainstats-api.qauinger.com/mountains/${getParam('m')}/map`;
+                    img.onload = function() {
+                        canvas.height = img.height;
+                        canvas.width = img.width;
+                        ctx.drawImage(img,0,0, canvas.width, canvas.height);
+
+                        showMountainStatus();
                     }
-                }).then(mountain => {
-                    document.title = 'MountainStats | ' + mountain['name'];
-                    document.getElementById('title').innerHTML = mountain['name'];
-                    document.getElementById('webpage').setAttribute('href', mountain['url']);
-                    document.getElementById('webpage').setAttribute('target', '_blank');
-                    document.getElementById('webpage').classList.add('link');
-                    document.getElementById('webpage').innerHTML = mountain['url'];
-                }).catch(error => {
-                    document.title = 'Mountain Stats';
-                    document.getElementById('title').innerHTML = 'Invalid mountain.';
+                }
+            })()
+
+            async function showMountainStatus() {
+                const mountain_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}`);
+                var mountain = (await mountain_response.json())[getParam('m')];
+
+                const status_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}/status`);
+                var status = (await status_response.json())[['trails']];
+
+                Object.keys(status).forEach(trail => {
+                    var polylines = mountain['trails'][trail]['polylines'];
+                    Object.keys(polylines).forEach(line => {
+                        var x = polylines[line][0][0];
+                        var y = polylines[line][0][1];
+                        var curves = [];
+                        for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
+                            curves.push(polylines[line][i]);
+                        }
+                        drawBezier(x, y, curves, "green");
+                    });
                 });
-            })();
+            }
+
+            function drawBezier(x, y, curves, color) {
+                var ctx = document.getElementById('render').getContext('2d');
+                ctx.lineWidth = 12.5;
+                ctx.strokeStyle = color;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                for (i = 0; i < curves.length; i++) {
+                    c = curves[i];
+                    ctx.bezierCurveTo(c[0], c[1], c[2], c[3], c[4], c[5]);
+                    ctx.moveTo(c[4], c[5]);
+                    ctx.stroke();
+                }
+            }
 
             function getParam(param) {
                 var val = new URL(document.URL).searchParams.get(param);
@@ -37,27 +67,6 @@
         </script>
     </head>
     <body>
-        <div id="container">
-		    <div id="header">
-                <ol id="header-hypers">
-                    <li><a href="index.html"><img src="banner.png" alt="MountainStats"></a></li>
-                </ol>
-            </div>
-		    <div id="body">
-		    	<main id="main">
-		    		<div class="innertube">
-		    			<h3 id="title">...</h3>
-                        <ol>
-                            <li><a id="webpage" href="#">...</a></li>
-                        </ol>
-		    		</div>
-		    	</main>
-		    </div>
-            <div id="footer">
-                <ol id="footer-hypers">
-                    <li><a href="https://github.com/qauinger/mountainstats/" target="_blank">Contribute</a></li>
-                </ol>
-            </div>
-        </div>
+        <canvas id="render">
 	</body>
 </html>
