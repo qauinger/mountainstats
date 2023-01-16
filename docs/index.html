@@ -16,7 +16,7 @@
                     var node = document.createElement('li');
                     node.classList.add('mtn');
                     var link = document.createElement('a');
-                    link.setAttribute('href', 'render.html?m=' + mountain);
+                    link.setAttribute('href', 'render?m=' + mountain);
                     link.innerHTML = `${info['name']} (${info['locality']}, ${info['region']})`;
                     node.appendChild(link);
                     document.getElementById('mtn-list').appendChild(node);
