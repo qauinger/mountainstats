@@ -41,7 +41,16 @@
                         for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
                             curves.push(polylines[line][i]);
                         }
-                        drawBezier(x, y, curves, "green");
+
+                        var color;
+                        if(status[trail] === 1) {
+                            color = "green"
+                        } else if(status[trail] === 0) {
+                            color = "maroon"
+                        } else {
+                            color = "orange"
+                        }
+                        drawBezier(x, y, curves, color);
                     });
                 });
             }
