@@ -38,7 +38,7 @@ async function showMountainStatus() {
             } else if(trail_status[trail] === 0) {
                 color = getCookie('closed_trail_color');
             } else {
-                color = "orange";
+                color = "black";
             }
             drawBezier(x, y, curves, color);
         });
@@ -62,7 +62,7 @@ async function showMountainStatus() {
             } else if(lift_status[lift] === 0) {
                 color = getCookie('closed_lift_color');
             } else {
-                color = "orange";
+                color = "black";
             }
             drawBezier(x, y, curves, color);
         });
