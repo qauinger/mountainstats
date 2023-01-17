@@ -58,3 +58,7 @@ function setCookie(id, value, days) {
 function removeCookie(id) {
     setCookie(id, 0, -1);
 }
+
+function removeAllCookies() {
+    document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+}

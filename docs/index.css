@@ -1,6 +1,5 @@
 * {
     --footer-height: 80px;
-    overflow: hidden;
 }
 
 html, body {
@@ -127,4 +126,10 @@ main ol a {
 .section-header {
     color: #8BCEB8;
     font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+    color: #8BCEB8;
 }
