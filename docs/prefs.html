@@ -21,6 +21,10 @@
                         removeAllCookies();
                     }
                 }
+
+                document.getElementById('line_thickness').oninput = function() {
+                    document.getElementById('line_thickness_label').value = document.getElementById('line_thickness').value;
+                }
             }
         </script>
     </head>
@@ -38,13 +42,13 @@
 		    	<main id="main">
 		    		<div class="innertube">
 		    			<h3 id="title">Preferences:</h3>
-                        <hr><h1 class="section-header">Main Menu</h1>
+                        <hr><h1 class="section-header">Home</h1>
                         <div class="prefbar" style="display:inline;">
                             <input id="recents_persist" type="checkbox" style="float:left;">
                             <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Remember most recently viewed mountains</h1>
                         </div>
                         
-                        <hr><h1 class="section-header">Render Colors</h1>
+                        <hr><h1 class="section-header">Renders</h1>
                         <div class="prefbar" style="display:inline;">
                             <input id="open_trail_color" type="color" style="float:left;">
                             <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Open trail</h1>
@@ -60,6 +64,11 @@
                         <div class="prefbar" style="display:inline;">
                             <input id="closed_lift_color" type="color" style="float:left;">
                             <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Closed lift</h1>
+                        </div>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="line_thickness_label" style="float:left; width:15px;" value="10" disabled>
+                            <input id="line_thickness" type="range" min="5" max="15" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Line thickness</h1>
                         </div>
                         <hr>
                         <div class="prefbar" style="display:inline;">

@@ -3,7 +3,8 @@ const default_prefs = {
     "open_trail_color":"#008000",
     "closed_trail_color":"#800000",
     "open_lift_color":"#0818A8",
-    "closed_lift_color":"#808080"
+    "closed_lift_color":"#808080",
+    "line_thickness":"13"
 }
 
 function getDefaultPref(id) {
@@ -20,6 +21,7 @@ function savePrefs() {
     setCookie('closed_trail_color', document.getElementById('closed_trail_color').value, 36500);
     setCookie('open_lift_color', document.getElementById('open_lift_color').value, 36500);
     setCookie('closed_lift_color', document.getElementById('closed_lift_color').value, 36500);
+    setCookie('line_thickness', document.getElementById('line_thickness').value, 36500);
     console.log('Saved preferences.');
 }
 
@@ -29,6 +31,8 @@ function loadPrefs() {
     document.getElementById('closed_trail_color').value = getCookie('closed_trail_color');
     document.getElementById('open_lift_color').value = getCookie('open_lift_color');
     document.getElementById('closed_lift_color').value = getCookie('closed_lift_color');
+    document.getElementById('line_thickness').value = getCookie('line_thickness');
+    document.getElementById('line_thickness_label').value = getCookie('line_thickness');
     console.log('Loaded preferences.');
 }
 

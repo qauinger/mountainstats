@@ -71,7 +71,7 @@ async function showMountainStatus() {
 
 function drawBezier(x, y, curves, color) {
     var ctx = document.getElementById('render').getContext('2d');
-    ctx.lineWidth = 12.5;
+    ctx.lineWidth = getCookie('line_thickness');
     ctx.strokeStyle = color;
     ctx.beginPath();
     ctx.moveTo(x, y);
