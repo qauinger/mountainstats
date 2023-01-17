@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MountainStats</title>
+        <link rel="icon" type="image/x-icon" href="icon.png">
+        <link rel="stylesheet" href="index.css">
+        <script src="prefs.js" ></script>
+        <script>
+            window.onload = function() {
+                loadPrefs();
+                document.getElementById('save_button').onclick = function() {
+                    savePrefs();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="container">
+		    <div id="header">
+                <ol id="header-hypers">
+                    <li><a href="index.html"><img src="banner.png" alt="MountainStats"></a></li>
+                    <li><a href="prefs.html" class="link" style="float:right; padding-right:20px;"><h3>Preferences</h3></a></li>
+                </ol>
+            </div>
+		    <div id="body">
+		    	<main id="main">
+		    		<div class="innertube">
+		    			<h3 id="title">Preferences:</h3>
+
+                        <hr><h1 class="section-header">Main Menu</h1>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="recents_persist" type="checkbox" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Remember most recently viewed mountains</h1>
+                        </div>
+                        
+                        <hr><h1 class="section-header">Render Colors</h1>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="open_trail_color" type="color" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Open trail</h1>
+                        </div>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="closed_trail_color" type="color" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Closed trail</h1>
+                        </div>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="open_lift_color" type="color" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Open lift</h1>
+                        </div>
+                        <div class="prefbar" style="display:inline;">
+                            <input id="closed_lift_color" type="color" style="float:left;">
+                            <h1 style="color: #8BCEB8; font-size: 16px; margin:0px; padding-left: 10px; padding-bottom:10px;">Closed lift</h1>
+                        </div>
+                        <div class="prefbar" style="display:inline;">
+                            <button id="save_button" style="float:left;">Save</button>
+                        </div>
+		    		</div>
+		    	</main>
+		    </div>
+            <div id="footer">
+                <ol id="footer-hypers">
+                    <li><a href="https://github.com/qauinger/mountainstats/" target="_blank">Contribute</a></li>
+                </ol>
+            </div>
+        </div>
+	</body>
+</html>
