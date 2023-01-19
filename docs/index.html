@@ -16,6 +16,7 @@
                     var info = data['mountains'][mountain];
                     var node_link = document.createElement('a');
                     node_link.setAttribute('href', 'render.html?m=' + mountain);
+                    node_link.setAttribute('target', '_blank');
                     var node = document.createElement('li');
                     node.classList.add('mtn');
                     var link = document.createElement('a');
