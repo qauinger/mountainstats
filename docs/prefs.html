@@ -19,6 +19,7 @@
                     let confirmClear = confirm('Are you sure you want to clear the cookies? This will reset all of your preferences.');
                     if(confirmClear) {
                         removeAllCookies();
+                        loadPrefs();
                     }
                 }
 
