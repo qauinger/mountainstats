@@ -11,6 +11,40 @@
         <script src="render.js"></script>
     </head>
     <body>
-        <canvas id="render">
+        <div id="container">
+            <div id="header">
+                <ol id="header-list">
+                    <li><a href="index.html"><img src="banner.png" alt="MountainStats"></a></li>
+                    <li><a href="contact.html" class="link header-right" style="padding-right:20px;"><h3>Contact</h3></a></li>
+                    <li><a href="about.html" class="link header-right" style="padding-right:20px;"><h3>About</h3></a></li>
+                    <li><a href="prefs.html" class="link header-right" style="padding-right:20px;"><h3>Preferences</h3></a></li>
+                </ol>
+            </div>
+            <div id="legend">
+                <table id="legend-table">
+                    <tbody>
+                        <tr>
+                            <td class="legend-item">
+                                <div id="open-trail-legend" class="box"></div>
+                                <p>Open Trail</p>
+                            </td>
+                            <td class="legend-item">
+                                <div id="closed-trail-legend" class="box"></div>
+                                <p>Closed Trail</p>
+                            </td>
+                            <td class="legend-item">
+                                <div id="open-lift-legend" class="box"></div>
+                                <p>Open Lift</p>
+                            </td>
+                            <td class="legend-item">
+                                <div id="closed-lift-legend" class="box"></div>
+                                <p>Closed Lift</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <canvas id="render"></canvas>
+        </div>
 	</body>
 </html>

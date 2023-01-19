@@ -10,6 +10,7 @@ html, body {
     background: #222222;
     line-height: 1.5em;
 }
+
 @media (max-width: 1024px) {
     body {
         padding-left: 2%;

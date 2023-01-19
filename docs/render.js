@@ -11,6 +11,8 @@
             ctx.drawImage(img,0,0, canvas.width, canvas.height);
             showMountainStatus();
         }
+
+        updateLegend();
     }
 })()
 
@@ -64,15 +66,28 @@ async function showMountainStatus() {
             } else {
                 color = "black";
             }
-            drawBezier(x, y, curves, color);
+            drawBezier(x, y, curves, color, true);
         });
     });
 }
 
-function drawBezier(x, y, curves, color) {
+function updateLegend() {
+    document.getElementById('open-trail-legend').style = `background-color: ${getCookie('open_trail_color')}`;
+    document.getElementById('closed-trail-legend').style = `background-color: ${getCookie('closed_trail_color')}`;
+    document.getElementById('open-lift-legend').style = `background-color: ${getCookie('open_lift_color')}`;
+    document.getElementById('closed-lift-legend').style = `background-color: ${getCookie('closed_lift_color')}`;
+}
+
+function drawBezier(x, y, curves, color, dotted) {
     var ctx = document.getElementById('render').getContext('2d');
     ctx.lineWidth = getCookie('line_thickness');
+    ctx.lineCap = 'butt';
+    ctx.lineJoin = 'round';
     ctx.strokeStyle = color;
+    if(dotted) {
+        ctx.setLineDash([1, 15]);
+        ctx.lineCap = 'round';
+    }
     ctx.beginPath();
     ctx.moveTo(x, y);
     for (i = 0; i < curves.length; i++) {

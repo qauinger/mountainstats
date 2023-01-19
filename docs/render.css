@@ -1,13 +1,107 @@
 #render {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
+    display: block;
     padding: 0px;
     background-color: white;
 }
 
-body {
-    background-color: #000000;
-    margin: 0px;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Helvetica;
+    background: #222222;
+    line-height: 1.5em;
+}
+@media (max-width: 1024px) {
+    body {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    #render {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .header-right {
+        float:right;
+    }
+
+    #render {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    height: 50px;
+    display: inline;
+}
+
+#header-list li {
+    display: inline;
+    list-style: none;
+}
+
+.link {
+    color: #8BCEB8;
+    text-decoration: none;
+}
+
+#legend {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
     padding: 0px;
+}
+
+#legend-table {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.legend-item {
+    color: #8BCEB8;
+    margin-left: 5px;
+    display:inline-flex;
+    overflow:visible;
+    text-align: center;
+}
+
+.box {
+    align-self: center;
+    height: 1em;
+    width: 1em;
+    margin: 5px;
+    border:1px solid black;
+}
+
+.legend-item {
+    height: 80%;
+    padding: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+td {
+    height: 30px;
 }
