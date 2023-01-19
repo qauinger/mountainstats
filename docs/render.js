@@ -86,6 +86,7 @@ function drawBezier(x, y, curves, color, dotted) {
     ctx.strokeStyle = color;
     if(dotted) {
         ctx.setLineDash([1, 15]);
+        ctx.lineDashOffset = 5;
         ctx.lineCap = 'round';
     }
     ctx.beginPath();

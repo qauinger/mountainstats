@@ -1,9 +1,9 @@
 const default_prefs = {
     "recents_persist":"true",
-    "open_trail_color":"#008000",
-    "closed_trail_color":"#800000",
-    "open_lift_color":"#0818A8",
-    "closed_lift_color":"#808080",
+    "open_trail_color":"#4F7A28",
+    "closed_trail_color":"#AAAAAA",
+    "open_lift_color":"#89172A",
+    "closed_lift_color":"#AAAAAA",
     "line_thickness":"13"
 }
 
