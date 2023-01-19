@@ -20,6 +20,9 @@ async function showMountainStatus() {
     const mountain_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}`);
     var mountain = (await mountain_response.json())[getParam('m')];
 
+    document.getElementById('mountain-title').innerHTML = mountain['name'];
+    document.getElementById('mountain-info').innerHTML = `${mountain['locality']}, ${mountain['region']} - <a href="${mountain['url']}" target="_blank">${mountain['url']}</a>`;
+
     const status_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}/status`);
     var status = (await status_response.json());
     

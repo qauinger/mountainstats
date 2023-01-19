@@ -106,12 +106,29 @@ td {
     height: 30px;
 }
 
-#terms {
-    font-size: 20px;
+.terms {
+    font-size: 15px;
     line-height: 30px;
     color: #8BCEB8;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+}
+
+#mountain-title {
+    color: #879FB9;
+    width: 80%;
+    margin: auto;
+}
+
+#mountain-info {
+    color: #879FB9;
+    width: 80%;
+    margin: auto;
+}
+
+#mountain-info a {
+    color: #879FB9;
+    text-decoration: underline;
 }
