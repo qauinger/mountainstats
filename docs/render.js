@@ -1,34 +1,47 @@
-(async () => {
-    window.onload = function() {
-        var canvas = document.getElementById('render');
-        var ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        var img = new Image();
-        img.src = `http://mountainstats-api.qauinger.com/mountains/${getParam('m')}/map`;
-        img.onload = function() {
-            canvas.height = img.height;
-            canvas.width = img.width;
-            ctx.drawImage(img,0,0, canvas.width, canvas.height);
-            showMountainStatus();
-        }
+var mtn = "";
+var mtninfo = {};
+var mtnstatus = {};
+var mtnmap = new Image();
+const dashLength = 15;
+var dashAnimationIndex = dashLength;
 
-        updateLegend();
-    }
-})()
-
-async function showMountainStatus() {
-    const mountain_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}`);
-    var mountain = (await mountain_response.json())[getParam('m')];
-
-    document.getElementById('mountain-title').innerHTML = mountain['name'];
-    document.getElementById('mountain-info').innerHTML = `${mountain['locality']}, ${mountain['region']} - <a href="${mountain['url']}" target="_blank">${mountain['url']}</a>`;
-
-    const status_response = await fetch(`https://mountainstats-api.qauinger.com/mountains/${getParam('m')}/status`);
-    var status = (await status_response.json());
+window.onload = function() {
+    mtn = getParam('m');
     
-    var trail_status = status['trails'];
-    Object.keys(trail_status).forEach(trail => {
-        var polylines = mountain['trails'][trail]['polylines'];
+    updateLegend();
+
+    var canvas = document.getElementById('render');
+    mtnmap.src = `http://mountainstats-api.qauinger.com/mountains/${mtn}/map`;
+    mtnmap.onload = function() {
+        canvas.height = mtnmap.height;
+        canvas.width = mtnmap.width;
+        renderMountainStatus();
+    }
+}
+
+async function renderMountainStatus() {
+    var info = await fetch(`https://mountainstats-api.qauinger.com/mountains/${mtn}`);
+    mtninfo = (await info.json())[mtn];
+
+    document.getElementById('mountain-title').innerHTML = mtninfo['name'];
+    document.getElementById('mountain-info').innerHTML = `${mtninfo['locality']}, ${mtninfo['region']} - <a href="${mtninfo['url']}" target="_blank">${mtninfo['url']}</a>`;
+
+    var status = await fetch(`https://mountainstats-api.qauinger.com/mountains/${mtn}/status`);
+    mtnstatus = (await status.json());
+    
+    window.requestAnimationFrame(drawMountainStatus);
+}
+
+function drawMountainStatus() {
+
+    var canvas = document.getElementById('render');
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(mtnmap,0,0, canvas.width, canvas.height);
+
+    var trails = mtninfo['trails'];
+    Object.keys(trails).forEach(trail => {
+        var polylines = mtninfo['trails'][trail]['polylines'];
         Object.keys(polylines).forEach(line => {
             var x = polylines[line][0][0];
             var y = polylines[line][0][1];
@@ -36,23 +49,13 @@ async function showMountainStatus() {
             for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
                 curves.push(polylines[line][i]);
             }
-
-            var color;
-            if(trail_status[trail] === 1) {
-                color = getCookie('open_trail_color');
-            } else if(trail_status[trail] === 0) {
-                color = getCookie('closed_trail_color');
-            } else {
-                color = "black";
-            }
-            drawBezier(x, y, curves, color);
+            drawBezier(x, y, curves, 'trail', mtnstatus['trails'][trail] == 1 ? 'open' : mtnstatus['trails'][trail] === 0 ? 'closed' : 'unknown');
         });
     });
 
-    var lift_status = status['lifts'];
-    console.log(status);
-    Object.keys(lift_status).forEach(lift => {
-        var polylines = mountain['lifts'][lift]['polylines'];
+    var lifts = mtninfo['lifts'];
+    Object.keys(lifts).forEach(lift => {
+        var polylines = mtninfo['lifts'][lift]['polylines'];
         Object.keys(polylines).forEach(line => {
             var x = polylines[line][0][0];
             var y = polylines[line][0][1];
@@ -60,18 +63,21 @@ async function showMountainStatus() {
             for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
                 curves.push(polylines[line][i]);
             }
-
-            var color;
-            if(lift_status[lift] === 1) {
-                color = getCookie('open_lift_color');
-            } else if(lift_status[lift] === 0) {
-                color = getCookie('closed_lift_color');
-            } else {
-                color = "black";
-            }
-            drawBezier(x, y, curves, color, true);
+            drawBezier(x, y, curves, 'lift', mtnstatus['lifts'][lift] == 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown', dashAnimationIndex);
         });
     });
+
+    if(dashAnimationIndex >= 0) {
+        dashAnimationIndex -= 1;
+    } else {
+        dashAnimationIndex = dashLength;
+    }
+
+    if(getCookie('lift_animation') === 'true') {
+        setTimeout(function() {
+            window.requestAnimationFrame(drawMountainStatus);
+        }, 100);
+    }
 }
 
 function updateLegend() {
@@ -81,17 +87,23 @@ function updateLegend() {
     document.getElementById('closed-lift-legend').style = `background-color: ${getCookie('closed_lift_color')}`;
 }
 
-function drawBezier(x, y, curves, color, dotted) {
+function drawBezier(x, y, curves, type, status, startOffset) {
     var ctx = document.getElementById('render').getContext('2d');
-    ctx.lineWidth = getCookie('line_thickness');
-    ctx.lineCap = 'butt';
-    ctx.lineJoin = 'round';
-    ctx.strokeStyle = color;
-    if(dotted) {
-        ctx.setLineDash([1, 15]);
-        ctx.lineDashOffset = 5;
+    if(type === 'trail') {
+        ctx.strokeStyle = getCookie(`${status}_trail_color`);
+        ctx.setLineDash([]);
+        ctx.lineCap = 'butt';
+    } else if(type === 'lift') {
+        ctx.strokeStyle = getCookie(`${status}_lift_color`);
+        ctx.setLineDash([1, dashLength]);
+        if(status === 'open') {
+            ctx.lineDashOffset = startOffset;
+        } else {
+            ctx.lineDashOffset = 0;
+        }
         ctx.lineCap = 'round';
     }
+    ctx.lineWidth = getCookie('line_thickness');
     ctx.beginPath();
     ctx.moveTo(x, y);
     for (i = 0; i < curves.length; i++) {
