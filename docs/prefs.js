@@ -1,5 +1,6 @@
 const default_prefs = {
     "recents_persist":"true",
+    "lift_animation":"true",
     "open_trail_color":"#4F7A28",
     "closed_trail_color":"#AAAAAA",
     "open_lift_color":"#89172A",
@@ -17,6 +18,7 @@ function getDefaultPrefs() {
 
 function savePrefs() {
     setCookie('recents_persist', document.getElementById('recents_persist').checked, 36500);
+    setCookie('lift_animation', document.getElementById('lift_animation').checked, 36500);
     setCookie('open_trail_color', document.getElementById('open_trail_color').value, 36500);
     setCookie('closed_trail_color', document.getElementById('closed_trail_color').value, 36500);
     setCookie('open_lift_color', document.getElementById('open_lift_color').value, 36500);
@@ -27,6 +29,7 @@ function savePrefs() {
 
 function loadPrefs() {
     document.getElementById('recents_persist').checked = (getCookie('recents_persist') === 'true');
+    document.getElementById('lift_animation').checked = (getCookie('lift_animation') === 'true');
     document.getElementById('open_trail_color').value = getCookie('open_trail_color');
     document.getElementById('closed_trail_color').value = getCookie('closed_trail_color');
     document.getElementById('open_lift_color').value = getCookie('open_lift_color');
