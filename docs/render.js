@@ -25,9 +25,10 @@ async function renderMountainStatus() {
 
     document.getElementById('mountain-title').innerHTML = mtninfo['name'];
     document.getElementById('mountain-info').innerHTML = `${mtninfo['locality']}, ${mtninfo['region']} - <a href="${mtninfo['url']}" target="_blank">${mtninfo['url']}</a>`;
-
+    
     var status = await fetch(`https://mountainstats-api.qauinger.com/mountains/${mtn}/status`);
     mtnstatus = (await status.json());
+    document.getElementById('mountain-last-updated').innerHTML = `Last updated: ${new Date(mtnstatus['lastUpdated'] * 1000).toLocaleString()}`;
     
     window.requestAnimationFrame(drawMountainStatus);
 }
