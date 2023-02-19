@@ -28,8 +28,8 @@ async function renderMountainStatus() {
     
     var status = await fetch(`https://mountainstats-api.qauinger.com/mountains/${mtn}/status`);
     mtnstatus = (await status.json());
-    document.getElementById('mountain-last-updated').innerHTML = `Last updated by ${mtninfo['name']} at: ${mtnstatus['lastUpdated']}`;
-    //document.getElementById('last-checked').innerHTML = `Last checked:${new Date(mtnstatus['lastChecked'] * 1000).toLocaleString()}`;
+
+    document.getElementById('last-checked').innerHTML = `Last checked: ${new Date(mtnstatus['lastChecked'] * 1000).toLocaleString()}`;
     
     window.requestAnimationFrame(drawMountainStatus);
 }
