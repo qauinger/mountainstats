@@ -1,0 +1,186 @@
+<div>
+    <h1 class="title-font"><%- mtninfo['name'] %> | <%- mtninfo['locality']%>, <%- mtninfo['region']%></h1>
+    <p id="mtn-url"><a href="<%- mtninfo['url'] %>" class="underline"><%- mtninfo['url'] %></a> - Last checked: <span id="last-checked"><%- lastChecked %></span></p>
+    <p id="tos-warning">
+        By using this site, you acknowledge the <a href="/legal" class="underline">terms of service</a>.
+    </p>
+
+    <table id="legend-table">
+        <tbody>
+            <tr>
+                <td class="legend-item">
+                    <div id="open-trail-legend" class="box"></div>
+                    <p>Open Trail</p>
+                </td>
+                <td class="legend-item">
+                    <div id="closed-trail-legend" class="box"></div>
+                    <p>Closed Trail</p>
+                </td>
+                <td class="legend-item">
+                    <div id="open-lift-legend" class="box"></div>
+                    <p>Open Lift</p>
+                </td>
+                <td class="legend-item">
+                    <div id="closed-lift-legend" class="box"></div>
+                    <p>Closed Lift</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<canvas id="render"></canvas>
+<div id="weather-widget">
+    <h3 class="title-font">Current weather:</h3>
+    <%- include('partials/weather-widget.ejs') %>
+</div>
+
+<script>
+    var mtn = '<%- mountain %>';
+    var mtninfo = <%- JSON.stringify(mtninfo) %>;
+    var mtnstatus = <%- JSON.stringify(mtnstatus) %>;
+    var map = new Image();
+    var render = document.getElementById('render');
+    const dashLength = 15;
+    var dashAnimationIndex = dashLength;
+
+    window.onload = function() {
+        if(getCookie('tos-acknowledge') == 'true') {
+            var tos = document.getElementById('tos-warning');
+            tos.style.display = 'none';
+        }
+
+        if(getCookie('weather-widget') == 'false') {
+            var widget = document.getElementById('weather-widget');
+            widget.style.display = 'none';
+        }
+
+        updateLegend();
+
+        map.src = `/mtn/${mtn}/map.png`;
+        map.onload = function() {
+            render.height = map.height;
+            render.width = map.width;
+            var ctx = render.getContext('2d');
+            ctx.clearRect(0, 0, render.width, render.height);
+            ctx.drawImage(map,0,0, render.width, render.height);
+        }
+
+        setTimeout(function() {
+            drawMountainStatus();
+        }, 100);
+        window.requestAnimationFrame(drawMountainStatus);
+    }
+
+    function drawMountainStatus() {
+        var render = document.getElementById('render');
+        var ctx = render.getContext('2d');
+        ctx.clearRect(0, 0, render.width, render.height);
+        ctx.drawImage(map,0,0, render.width, render.height);
+        var trails = mtninfo['trails'];
+        Object.keys(trails).forEach(trail => {
+            var polylines = mtninfo['trails'][trail]['polylines'];
+            Object.keys(polylines).forEach(line => {
+                var x = polylines[line][0][0];
+                var y = polylines[line][0][1];
+                var curves = [];
+                for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
+                    curves.push(polylines[line][i]);
+                }
+                drawBezier(x, y, curves, 'trail', mtnstatus['trails'][trail] == 1 ? 'open' : mtnstatus['trails'][trail] === 0 ? 'closed' : 'unknown');
+            });
+        });
+
+        var lifts = mtninfo['lifts'];
+        Object.keys(lifts).forEach(lift => {
+            var polylines = mtninfo['lifts'][lift]['polylines'];
+            Object.keys(polylines).forEach(line => {
+                var x = polylines[line][0][0];
+                var y = polylines[line][0][1];
+                var curves = [];
+                for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
+                    curves.push(polylines[line][i]);
+                }
+                drawBezier(x, y, curves, 'lift', mtnstatus['lifts'][lift] == 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown', dashAnimationIndex);
+            });
+        });
+
+        if(dashAnimationIndex >= 0) {
+            dashAnimationIndex -= 1;
+        } else {
+            dashAnimationIndex = dashLength;
+        }
+
+        if(getCookie('animate-lifts') === 'true') {
+            setTimeout(function() {
+                window.requestAnimationFrame(drawMountainStatus);
+            }, 200);
+        }
+    }
+
+    function drawBezier(x, y, curves, type, status, startOffset) {
+        var ctx = document.getElementById('render').getContext('2d');
+        if(type === 'trail') {
+            ctx.strokeStyle = getCookie(`trail-${status}-color`);
+            ctx.setLineDash([]);
+            ctx.lineCap = 'butt';
+        } else if(type === 'lift') {
+            ctx.strokeStyle = getCookie(`lift-${status}-color`);
+            ctx.setLineDash([1, dashLength]);
+            if(status === 'open') {
+                ctx.lineDashOffset = startOffset;
+            } else {
+                ctx.lineDashOffset = 0;
+            }
+            ctx.lineCap = 'round';
+        }
+        ctx.lineWidth = getCookie('line-width');
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        for (i = 0; i < curves.length; i++) {
+            c = curves[i];
+            ctx.bezierCurveTo(c[0], c[1], c[2], c[3], c[4], c[5]);
+            ctx.moveTo(c[4], c[5]);
+            ctx.stroke();
+        }
+    }
+
+    function updateLegend() {
+        document.getElementById('open-trail-legend').style = `background-color: ${getCookie('trail-open-color')}`;
+        document.getElementById('closed-trail-legend').style = `background-color: ${getCookie('trail-closed-color')}`;
+        document.getElementById('open-lift-legend').style = `background-color: ${getCookie('lift-open-color')}`;
+        document.getElementById('closed-lift-legend').style = `background-color: ${getCookie('lift-closed-color')}`;
+    }
+
+    function getCookie(id) {
+        let name = id + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return getDefaultPref(id);
+    }
+
+    function getDefaultPref(id) {
+        return default_prefs[id];
+    }
+
+    const default_prefs = {
+        "recents":"true",
+        "favorites":"true",
+        "animate-lifts":"true",
+        "weather-widget": "true",
+        "trail-open-color":"#4F7A28",
+        "trail-closed-color":"#AAAAAA",
+        "lift-open-color":"#89172A",
+        "lift-closed-color":"#AAAAAA",
+        "line-width":"13",
+        "theme": "1"
+    }
+</script>

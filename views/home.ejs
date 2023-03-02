@@ -1,0 +1,103 @@
+<div id="favorites-list" style="display: none;"><h3><span>★ </span>Favorites</h3>
+<hr>
+<ol class="mtn-list">
+    
+</ol></div>
+<h3>All mountains</h3>
+<hr>
+<ol class="mtn-list">
+    <% Object.keys(mountains).forEach(mountain => { %>
+        <% var info = mountains[mountain]; %>
+        <li class="mtn-item"><span id='mtn-item-<%=mountain%>'><a href=/m/<%=mountain%>><%= info['name'] %> (<%= info['locality'] %>, <%= info['region'] %>)</a></span><a class="star" onclick="toggleFavorite('<%=mountain%>')"><span class="star" id="favorite-<%=mountain%>">☆</span></a></li>
+    <% }); %>
+</ol>
+
+<script>
+    window.onload = function() {
+        loadFavorites(true);
+    }
+
+    function loadFavorites(first) {
+        if(first) {
+            var favorites = JSON.parse(getCookie('favorite-list'));
+            favorites.forEach(fav => {
+                toggleFavorite(fav);
+            });
+        }
+
+        if(getCookie('favorites') == 'true') {
+            document.getElementById('favorites-list').lastChild.innerHTML = '';
+            var favorites = JSON.parse(getCookie('favorite-list'));
+            if(favorites.length == 0) {
+                document.getElementById('favorites-list').style.display = 'none';
+            } else {
+                document.getElementById('favorites-list').style.display = 'inline';
+                favorites.forEach(mtn => {
+                    console.log('bop!')
+                    var item = document.getElementById(`mtn-item-${mtn}`).innerHTML;
+                    var li = document.createElement('li');
+                    li.classList.add('mtn-item');
+                    li.id = `favorite-item-${mtn}`;
+                    li.innerHTML = item;
+                    document.getElementById('favorites-list').lastChild.appendChild(li);
+                });
+            }
+        }
+    }   
+
+    function toggleFavorite(mtn) {
+        var star = document.getElementById(`favorite-${mtn}`);
+        if(star.innerHTML == '☆') {
+            star.innerHTML = '★';
+            star.classList.add('favorited');
+            var list = JSON.parse(getCookie('favorite-list'));
+            if(list.indexOf(mtn) == -1) {
+                list.push(mtn);
+            }
+            setCookie('favorite-list', JSON.stringify(list), 36500);
+        } else {
+            star.innerHTML = '☆';
+            star.classList.remove('favorited');
+            var list = JSON.parse(getCookie('favorite-list'));
+            var index = list.indexOf(mtn);
+            if(index !== -1) {
+                list.splice(index, 1);
+            }
+            setCookie('favorite-list', JSON.stringify(list), 36500);
+        }
+        if(getCookie('favorites') == 'true') {
+            loadFavorites();
+        }
+    }
+
+    function getCookie(id) {
+        let name = id + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return getDefaultPref(id);
+    }
+
+    const default_prefs = {
+        "favorite-list":"[]"
+    }
+
+    function getDefaultPref(id) {
+        return default_prefs[id];
+    }
+
+    function setCookie(id, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = id + "=" + value + ";" + expires + ";path=/";
+    }
+</script>

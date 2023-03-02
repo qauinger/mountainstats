@@ -1,0 +1,29 @@
+{
+  "name": "mountainstats",
+  "version": "1.2.0",
+  "description": "A helpful tool for skiers and snowboarders to view mountain trail stats.",
+  "main": "mountainstats.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mountainstats.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qauinger/mountainstats.git"
+  },
+  "author": "qauinger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qauinger/mountainstats/issues"
+  },
+  "homepage": "https://github.com/qauinger/mountainstats#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-useragent": "^1.0.15",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.0"
+  }
+}

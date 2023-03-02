@@ -1,0 +1,192 @@
+{
+    "bristol_mountain": {
+        "url":"https://bristolmountain.com/conditions/",
+        "trails": {
+            "comet": {
+                "open_regex":"CometOPEN",
+                "closed_regex":"CometCLOSED"
+            },
+            "upper_rocket": {
+                "open_regex":"Upper RocketOPEN",
+                "closed_regex":"Upper RocketCLOSED"
+            },
+            "nova": {
+                "open_regex":"NovaOPEN",
+                "closed_regex":"NovaCLOSED"
+            },
+            "milky_way": {
+                "open_regex":"Milky WayOPEN",
+                "closed_regex":"Milky WayCLOSED"
+            },
+            "morning_star": {
+                "open_regex":"Morning StarOPEN",
+                "closed_regex":"Morning StarCLOSED"
+            },
+            "shooting_star": {
+                "open_regex":"Shooting StarOPEN",
+                "closed_regex":"Shooting StarCLOSED"
+            },
+            "eclipse": {
+                "open_regex":"EclipseOPEN",
+                "closed_regex":"EclipseCLOSED"
+            },
+            "sunbelt": {
+                "open_regex":"SunbeltOPEN",
+                "closed_regex":"SunbeltCLOSED"
+            },
+            "hale_bopp": {
+                "open_regex":"Hale BoppOPEN",
+                "closed_regex":"Hale BoppCLOSED"
+            },
+            "halleys_run": {
+                "open_regex":"Halley&#8217;s RunOPEN",
+                "closed_regex":"Halley&#8217;s RunCLOSED"
+            },
+            "southern_cross": {
+                "open_regex":"Southern CrossOPEN",
+                "closed_regex":"Southern CrossCLOSED"
+            },
+            "sunset_way": {
+                "open_regex":"Sunset WayOPEN",
+                "closed_regex":"Sunset WayCLOSED"
+            },
+            "upper_infinity": {
+                "open_regex":"Upper InfinityOPEN",
+                "closed_regex":"Upper InfinityCLOSED"
+            },
+            "lower_infinity": {
+                "open_regex":"Lower InfinityOPEN",
+                "closed_regex":"Lower InfinityCLOSED"
+            },
+            "sunset": {
+                "open_regex":"SunsetOPEN",
+                "closed_regex":"SunsetCLOSED"
+            },
+            "challenger": {
+                "open_regex":"ChallengerOPEN",
+                "closed_regex":"ChallengerCLOSED"
+            },
+            "launching_pad": {
+                "open_regex":"Launching PadOPEN",
+                "closed_regex":"Launching PadCLOSED"
+            },
+            "outer_orbit": {
+                "open_regex":"Outer OrbitOPEN",
+                "closed_regex":"Outer OrbitCLOSED"
+            },
+            "lower_rocket": {
+                "open_regex":"Lower RocketOPEN",
+                "closed_regex":"Lower RocketCLOSED"
+            },
+            "upper_meteor": {
+                "open_regex":"Upper MeteorOPEN",
+                "closed_regex":"Upper MeteorCLOSED"
+            },
+            "lower_meteor": {
+                "open_regex":"Lower MeteorOPEN",
+                "closed_regex":"Lower MeteorCLOSED"
+            },
+            "beta": {
+                "open_regex":"BetaOPEN",
+                "closed_regex":"BetaCLOSED"
+            },
+            "upper_galaxy": {
+                "open_regex":"Upper GalaxyOPEN",
+                "closed_regex":"Upper GalaxyCLOSED"
+            },
+            "lower_galaxy": {
+                "open_regex":"Lower GalaxyOPEN",
+                "closed_regex":"Lower GalaxyCLOSED"
+            },
+            "big_dipper": {
+                "open_regex":"Big DipperOPEN",
+                "closed_regex":"Big DipperCLOSED"
+            },
+            "saturn": {
+                "open_regex":"SaturnOPEN",
+                "closed_regex":"SaturnCLOSED"
+            },
+            "space_walk": {
+                "open_regex":"Space WalkOPEN",
+                "closed_regex":"Space WalkCLOSED"
+            },
+            "ursa_major": {
+                "open_regex":"Ursa MajorOPEN",
+                "closed_regex":"Ursa MajorCLOSED"
+            },
+            "ursa_minor": {
+                "open_regex":"Ursa MinorOPEN",
+                "closed_regex":"Ursa MinorCLOSED"
+            },
+            "shuttle": {
+                "open_regex":"ShuttleOPEN",
+                "closed_regex":"ShuttleCLOSED"
+            },
+            "skyway": {
+                "open_regex":"SkywayOPEN",
+                "closed_regex":"SkywayCLOSED"
+            },
+            "polaris": {
+                "open_regex":"PolarisOPEN",
+                "closed_regex":"PolarisCLOSED"
+            },
+            "asteroid": {
+                "open_regex":"AsteroidOPEN",
+                "closed_regex":"AsteroidCLOSED"
+            },
+            "upper_north_star": {
+                "open_regex":"Upper North StarOPEN",
+                "closed_regex":"Upper North StarCLOSED"
+            },
+            "lower_north_star": {
+                "open_regex":"Lower North StarOPEN",
+                "closed_regex":"Lower North StarCLOSED"
+            },
+            "galaxy_way": {
+                "open_regex":"Galaxy WayOPEN",
+                "closed_regex":"Galaxy WayCLOSED"
+            },
+            "upper_universe": {
+                "open_regex":"Upper UniverseOPEN",
+                "closed_regex":"Upper UniverseCLOSED"
+            },
+            "lower_universe": {
+                "open_regex":"Lower UniverseOPEN",
+                "closed_regex":"Lower UniverseCLOSED"
+            },
+            "orions_belt": {
+                "open_regex":"Orion&#8217;s BeltOPEN",
+                "closed_regex":"Orion&#8217;s BeltCLOSED"
+            }
+        },
+        "lifts": {
+            "comet_express_quad": {
+                "open_regex":"Comet Express QuadOPEN",
+                "closed_regex":"Comet Express QuadCLOSED"
+            },
+            "galaxy_express_quad": {
+                "open_regex":"Galaxy Express QuadOPEN",
+                "closed_regex":"Galaxy Express QuadCLOSED"
+            },
+            "rocket_triple": {
+                "open_regex":"Rocket TripleOPEN",
+                "closed_regex":"Rocket TripleCLOSED"
+            },
+            "sunset_double": {
+                "open_regex":"Sunset DoubleOPEN",
+                "closed_regex":"Sunset DoubleCLOSED"
+            },
+            "lunar_launch_magic_carpet": {
+                "open_regex":"Lunar Launch Magic CarpetOPEN",
+                "closed_regex":"Lunar Launch Magic CarpetCLOSED"
+            },
+            "morning_star_quad": {
+                "open_regex":"Morning Star QuadOPEN",
+                "closed_regex":"Morning Star QuadCLOSED"
+            }
+        },
+        "lastUpdated": {
+            "regex":"This page was last updated: (?<date>[\\w,@: ]*)"
+        }
+    }
+}
