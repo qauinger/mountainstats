@@ -1,0 +1,141 @@
+<h3>Preferences</h3>
+<hr>
+
+<div class="prefs-section">
+    <h3>Home</h3>
+    <input type="checkbox" id="favorites">
+    <label for="favorites">Display favorited mountains separately</label>
+</div>
+
+<div class="prefs-section">
+    <h3>Theme</h3>
+    <input type="radio" id="theme1" name="theme">
+    <label for="theme1">Blue mountains</label>
+</div>
+
+<div class="prefs-section">
+    <h3>Render</h3>
+    <input type="color" id="trail-open-color">
+    <label for="trail-open-color">Open trail color</label>
+    <br>
+    <input type="color" id="trail-closed-color">
+    <label for="trail-closed-color">Closed trail color</label>
+    <br>
+    <input type="color" id="lift-open-color">
+    <label for="lift-open-color">Open lift color</label>
+    <br>
+    <input type="color" id="lift-closed-color">
+    <label for="lift-closed-color">Closed lift color</label>
+    <br>
+    <input type="range" id="line-width" min="5" max="15">
+    <label for="line-width">Line width</label>
+    <label for="line-width" id="line-width-label">[10]</label>
+    <br>
+    <input type="checkbox" id="animate-lifts">
+    <label for="animate-lifts">Animate open lifts</label>
+    <br>
+    <input type="checkbox" id="weather-widget">
+    <label for="weather-widget">Include local weather widget</label>
+</div>
+
+<div class="prefs-section">
+    <h3>Actions</h3>
+    <button id="clear-all-cookies">Clear all cookies</button>
+</div>
+
+<script>
+    window.onload = function() {
+        loadPrefs();
+    }
+
+    window.onbeforeunload = function() {
+        savePrefs();
+    }
+
+    document.getElementById('line-width').oninput = function() {
+        document.getElementById('line-width-label').innerHTML = `(${document.getElementById('line-width').value})`;
+    }
+
+    document.getElementById('clear-all-cookies').onclick = function() {
+        let confirmClear = confirm('Are you sure you want to clear all cookies? This will reset all of your preferences.');
+        if(confirmClear) {
+            removeAllCookies();
+            loadPrefs();
+        }
+    }
+
+    const default_prefs = {
+        "favorites":"true",
+        "animate-lifts":"true",
+        "weather-widget": "true",
+        "trail-open-color":"#4F7A28",
+        "trail-closed-color":"#AAAAAA",
+        "lift-open-color":"#89172A",
+        "lift-closed-color":"#AAAAAA",
+        "line-width":"13",
+        "theme": "1"
+    }
+
+    function getDefaultPref(id) {
+        return default_prefs[id];
+    }
+
+    function loadPrefs() {
+        document.getElementById('favorites').checked = (getCookie('favorites') === 'true');
+        document.getElementById('animate-lifts').checked = (getCookie('animate-lifts') === 'true');
+        document.getElementById('weather-widget').checked = (getCookie('weather-widget') === 'true');
+        document.getElementById('trail-open-color').value = getCookie('trail-open-color');
+        document.getElementById('trail-closed-color').value = getCookie('trail-closed-color');
+        document.getElementById('lift-open-color').value = getCookie('lift-open-color');
+        document.getElementById('lift-closed-color').value = getCookie('lift-closed-color');
+        document.getElementById('line-width').value = getCookie('line-width');
+        document.getElementById('line-width-label').innerHTML = `(${document.getElementById('line-width').value})`;
+        document.getElementById(`theme${getCookie('theme')}`).checked = true;
+        console.log('Loaded preferences.');
+    }
+
+    function savePrefs() {
+        setCookie('favorites', document.getElementById('favorites').checked, 36500);
+        setCookie('animate-lifts', document.getElementById('animate-lifts').checked, 36500);
+        setCookie('weather-widget', document.getElementById('weather-widget').checked, 36500);
+        setCookie('trail-open-color', document.getElementById('trail-open-color').value, 36500);
+        setCookie('trail-closed-color', document.getElementById('trail-closed-color').value, 36500);
+        setCookie('lift-open-color', document.getElementById('lift-open-color').value, 36500);
+        setCookie('lift-closed-color', document.getElementById('lift-closed-color').value, 36500);
+        setCookie('line-width', document.getElementById('line-width').value, 36500);
+        
+        var ele = document.getElementsByName('theme');
+        for(i = 0; i < ele.length; i++) {
+            if(ele[i].checked)
+                setCookie('theme', ele[i].id.replace('theme', ''));
+        }
+        console.log('Saved preferences.');
+    }
+
+    function getCookie(id) {
+        let name = id + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return getDefaultPref(id);
+    }
+
+    function setCookie(id, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = id + "=" + value + ";" + expires + ";path=/";
+    }
+
+    function removeAllCookies() {
+        document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    }
+</script>

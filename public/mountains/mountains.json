@@ -1,0 +1,9 @@
+{
+    "mountains": {
+        "bristol_mountain": {
+            "name":"Bristol Mountain",
+            "region":"NY",
+            "locality":"Canandaigua"
+        }
+    }
+}

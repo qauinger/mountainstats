@@ -1,0 +1,22 @@
+<div id="header">
+    <a href="/" class="active title-font"><img src="/img/icon.png">MountainStats</a>
+    <div id="hamburger-list">
+        <a class="title-font" href="/">Home</a>
+        <a class="title-font" href="/about">About</a>
+        <a class="title-font" href="/prefs">Preferences</a>
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        ☰
+    </a>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById('hamburger-list');
+        if (x.style.display === 'block') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'block';
+        }
+    }
+</script>
