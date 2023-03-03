@@ -2,7 +2,7 @@
     <h1 class="title-font"><%- mtninfo['name'] %> | <%- mtninfo['locality']%>, <%- mtninfo['region']%></h1>
     <p id="mtn-url"><a href="<%- mtninfo['url'] %>" class="underline"><%- mtninfo['url'] %></a> - Last checked: <span id="last-checked"><%- lastChecked %></span></p>
     <p id="tos-warning">
-        By using this site, you acknowledge the <a href="/legal" class="underline">terms of service</a>.
+        By using this site, you acknowledge the <a href="http://qauinger.com/mountainstats/legal" class="underline">terms of service</a>.
     </p>
 
     <table id="legend-table">
@@ -56,7 +56,7 @@
 
         updateLegend();
 
-        map.src = `/mountains/${mtn}/map.png`;
+        map.src = `http://qauinger.com/mountainstats/public/mountains/${mtn}/map.png`;
         map.onload = function() {
             render.height = map.height;
             render.width = map.width;

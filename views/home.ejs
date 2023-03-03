@@ -8,7 +8,7 @@
 <ol class="mtn-list">
     <% Object.keys(mountains).forEach(mountain => { %>
         <% var info = mountains[mountain]; %>
-        <li class="mtn-item"><span id='mtn-item-<%=mountain%>'><a href="/m/<%=mountain%>"><%= info['name'] %> (<%= info['locality'] %>, <%= info['region'] %>)</a></span><a class="star" onclick="toggleFavorite('<%=mountain%>')"><span class="star" id="favorite-<%=mountain%>">☆</span></a></li>
+        <li class="mtn-item"><span id='mtn-item-<%=mountain%>'><a href="http://qauinger.com/mountainstats/m/<%=mountain%>"><%= info['name'] %> (<%= info['locality'] %>, <%= info['region'] %>)</a></span><a class="star" onclick="toggleFavorite('<%=mountain%>')"><span class="star" id="favorite-<%=mountain%>">☆</span></a></li>
     <% }); %>
 </ol>
 
