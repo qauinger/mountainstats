@@ -12,7 +12,7 @@ var __dirname = path.resolve();
 
 var mountains = null;
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
@@ -80,6 +80,20 @@ app.get('/m/:mtn', async (req, res) => {
 
 app.get('/public/*', (req, res) => {
     res.sendFile(`${__dirname}${req.path}`);
+});
+
+app.get('/dev', (req, res) => {
+    res.render('dev', {
+            css: css(req),
+            title:'MountainStats | Develop'
+    });
+});
+
+app.get('/dev/pathmapper', (req, res) => {
+    res.render('dev/pathmapper', {
+            layout: 'layouts/develop',
+            title:'MountainStats | PathMapper'
+    });
 });
 
 app.get('*', (req, res) => {

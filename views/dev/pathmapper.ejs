@@ -1,0 +1,114 @@
+<div id="toolbar">
+    <label for="map-url">Map URL:</label>
+    <input id="map-url" type="text" placeholder="https://">
+    <button id="load-map">Load</button>
+    <label for="path-name">Path name:</label>
+    <input type="text" id="path-name" placeholder="Display Name">
+    <label for="path-name">Path ID:</label>
+    <input type="text" id="path-id" placeholder="trail_id">
+    <input type="color" id="path-color">
+    <input type="number" id="path-width" min="0" max="100" value="3">
+    <button id="reset-path">Reset Path</button>
+    <button id="pause-path">Pause Path</button>
+    <button id="export-path">Export Data</button>
+</div>
+<canvas id="canvas"></canvas>
+<div id="export-area" style="display: none;">
+    <button id="copy-export">Copy to Clipboard</button>
+    <br>
+    <textarea id="export"></textarea>
+</div>
+
+<script>
+    var map = new Image();
+    var paused = false;
+    var path = [];
+    var color = 'black';
+    var width = '3';
+    var canvas = document.getElementById('canvas');
+
+    document.getElementById('load-map').onclick = function() {
+        map.src = document.getElementById('map-url').value;
+        map.onload = function() {
+            canvas.height = map.height;
+            canvas.width = map.width;
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(map,0,0, canvas.width, canvas.height);
+        }
+    }
+
+    document.getElementById('path-color').onchange = function() {
+        color = document.getElementById('path-color').value;
+        drawPath();
+    }
+
+    document.getElementById('path-width').onchange = function() {
+        width = document.getElementById('path-width').value;
+        drawPath();
+    }
+
+    document.getElementById('reset-path').onclick = function() {
+        let confirmClear = confirm('Are you sure you want to reset the path?');
+        if(confirmClear) {
+            path = [];
+            drawPath();
+        }
+    }
+
+    document.getElementById('pause-path').onclick = function() {
+        path.push(-1);
+        paused = true;
+    }
+
+    
+    document.getElementById('export-path').onclick = function() {
+        var name = document.getElementById('path-name').value;
+        var id = document.getElementById('path-id').value;
+        document.getElementById('export').innerText = `"${id}":{"name":"${name}","path":[${path.toString()}]}`;
+        document.getElementById('export-area').style.display = 'block';
+    }
+
+    document.getElementById('copy-export').onclick = function() {
+        navigator.clipboard.writeText(document.getElementById('export').textContent);
+    }
+
+    canvas.addEventListener('mousedown', function(e) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+        path.push([x, y]);
+        drawPath();
+    })
+
+    function drawPath() {
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(map,0,0, canvas.width, canvas.height);
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        ctx.lineWidth = width;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        if(path.length == 1) {
+            ctx.fillRect(path[0][0] - 1.5, path[0][1] - 1.5, 3, 3);
+        } else {
+            ctx.beginPath();
+            var paused = false;
+            path.forEach(coord => {
+                if(coord == -1)
+                    paused = true;
+                else
+                    if(paused) {
+                        ctx.stroke();
+                        ctx.moveTo(coord[0], coord[1]);
+                        paused = false;
+                    } else {
+                        ctx.lineTo(coord[0], coord[1]);
+                    }
+            });
+        }
+        ctx.stroke();
+    }
+</script>

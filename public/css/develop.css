@@ -1,0 +1,44 @@
+#header {
+    font-family: 'Bebas Neue', Montserrat;
+    letter-spacing: 1px;
+    overflow: hidden;
+    background-color: #ccc;
+    position: relative;
+}
+
+#header a img, #footer a img {
+    margin-right: 5px;
+    height: 1em;
+    vertical-align: middle;
+}
+  
+#header a {
+    float: left;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
+#header div a:hover {
+    color: white;
+}
+
+.active {
+    color: black;
+    background-color: gray;
+}
+
+#toolbar {
+    font-family: Sen;
+    background-color: #ccc;
+    padding: 5px;
+}
+
+input, button {
+    font-family: Sen;
+}
+
+#canvas {
+    margin: 10px;
+}
