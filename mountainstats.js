@@ -3,9 +3,12 @@ import fs from 'fs';
 import express from 'express';
 import useragent from 'express-useragent';
 import expressLayouts from 'express-ejs-layouts';
+import path from 'path';
 
 const app = express();
-const port = 5500;
+const port = 5501;
+
+var __dirname = path.resolve();
 
 var mountains = null;
 
@@ -73,6 +76,10 @@ app.get('/m/:mtn', async (req, res) => {
         console.log(error);
         res.redirect('/');
     }
+});
+
+app.get('/public/*', (req, res) => {
+    res.sendFile(`${__dirname}${req.path}`);
 });
 
 app.get('*', (req, res) => {
