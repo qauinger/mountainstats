@@ -9,10 +9,7 @@ const port = 5500;
 
 var mountains = null;
 
-app.use(express.static('public'));
-app.use('/mtn', express.static('public/mountains'))
-app.use('/css', express.static('public/css'));
-app.use('/img', express.static('public/img'));
+app.use(express.static('public'))
 
 app.use(expressLayouts);
 app.set('layout', 'layouts/layout');
