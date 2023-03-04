@@ -85,11 +85,13 @@
         var id = document.getElementById('path-id').value;
         document.getElementById('export').innerText = `"${id}":{"name":"${name}","path":[${path.toString()}]}`;
         document.getElementById('export-area').style.display = 'block';
-        navigator.clipboard.writeText(document.getElementById('export').textContent);
+        // navigator.clipboard.writeText(document.getElementById('export').textContent);
+        document.getElementById('export').focus();
+        document.getElementById('export').select();
     }
 
     document.getElementById('copy-export').onclick = function() {
-        navigator.clipboard.writeText(document.getElementById('export').textContent);
+        // navigator.clipboard.writeText(document.getElementById('export').textContent);
     }
 
     canvas.addEventListener('mousedown', function(e) {
