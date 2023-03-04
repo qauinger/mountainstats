@@ -2,6 +2,14 @@
     "bristol_mountain": {
         "url":"https://bristolmountain.com/conditions/",
         "trails": {
+            "aries": {
+                "open_regex":"AriesOPEN",
+                "closed_regex":"AriesCLOSED"
+            },
+            "gemini": {
+                "open_regex":"GeminiOPEN",
+                "closed_regex":"GeminiCLOSED"
+            },
             "comet": {
                 "open_regex":"CometOPEN",
                 "closed_regex":"CometCLOSED"

@@ -7,12 +7,14 @@
     <label for="path-name">Path ID:</label>
     <input type="text" id="path-id" placeholder="trail_id">
     <input type="color" id="path-color">
-    <input type="number" id="path-width" min="0" max="100" value="3">
+    <input type="number" id="path-width" min="0" max="20" value="3">
     <button id="reset-path">Reset Path</button>
     <button id="pause-path">Pause Path</button>
+    <button id="undo">Undo</button>
     <button id="export-path">Export Data</button>
+    <span id="path-status"></span>
 </div>
-<canvas id="canvas"></canvas>
+<canvas id="canvas" style="display: none;"></canvas>
 <div id="export-area" style="display: none;">
     <button id="copy-export">Copy to Clipboard</button>
     <br>
@@ -21,7 +23,6 @@
 
 <script>
     var map = new Image();
-    var paused = false;
     var path = [];
     var color = 'black';
     var width = '3';
@@ -35,6 +36,7 @@
             var ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(map,0,0, canvas.width, canvas.height);
+            canvas.style.display = 'block';
         }
     }
 
@@ -47,18 +49,34 @@
         width = document.getElementById('path-width').value;
         drawPath();
     }
+    document.getElementById('undo').onclick = function() {
+        if(path[path.length - 1] == -1) {
+            path.pop();
+            document.getElementById('path-status').innerText = '';
+        }
+        path.pop();
+        drawPath();
+    }
 
     document.getElementById('reset-path').onclick = function() {
         let confirmClear = confirm('Are you sure you want to reset the path?');
         if(confirmClear) {
             path = [];
             drawPath();
+            document.getElementById('export-area').style.display = 'none';
         }
     }
 
     document.getElementById('pause-path').onclick = function() {
-        path.push(-1);
-        paused = true;
+        if(path.length > 0) {
+            if(path[path.length - 1] == -1) {
+                path.pop();
+                document.getElementById('path-status').innerText = '';
+            } else {
+                path.push(-1);
+                document.getElementById('path-status').innerText = 'Path paused';
+            }
+        }
     }
 
     
@@ -67,6 +85,7 @@
         var id = document.getElementById('path-id').value;
         document.getElementById('export').innerText = `"${id}":{"name":"${name}","path":[${path.toString()}]}`;
         document.getElementById('export-area').style.display = 'block';
+        navigator.clipboard.writeText(document.getElementById('export').textContent);
     }
 
     document.getElementById('copy-export').onclick = function() {
@@ -74,9 +93,10 @@
     }
 
     canvas.addEventListener('mousedown', function(e) {
+        document.getElementById('path-status').innerText = '';
         var rect = canvas.getBoundingClientRect();
-        var x = event.clientX - rect.left;
-        var y = event.clientY - rect.top;
+        var x = Math.round(((event.clientX - rect.left) + Number.EPSILON) * 100) / 100;
+        var y = Math.round(((event.clientY - rect.top) + Number.EPSILON) * 100) / 100;
         path.push([x, y]);
         drawPath();
     })

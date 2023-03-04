@@ -65,10 +65,9 @@
             ctx.drawImage(map,0,0, render.width, render.height);
         }
 
-        setTimeout(function() {
+        setInterval(function() {
             drawMountainStatus();
         }, 100);
-        window.requestAnimationFrame(drawMountainStatus);
     }
 
     function drawMountainStatus() {
@@ -78,68 +77,45 @@
         ctx.drawImage(map,0,0, render.width, render.height);
         var trails = mtninfo['trails'];
         Object.keys(trails).forEach(trail => {
-            var polylines = mtninfo['trails'][trail]['polylines'];
-            Object.keys(polylines).forEach(line => {
-                var x = polylines[line][0][0];
-                var y = polylines[line][0][1];
-                var curves = [];
-                for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
-                    curves.push(polylines[line][i]);
-                }
-                drawBezier(x, y, curves, 'trail', mtnstatus['trails'][trail] == 1 ? 'open' : mtnstatus['trails'][trail] === 0 ? 'closed' : 'unknown');
-            });
+            if(Object.keys(mtninfo['trails']).includes(trail)) {
+                drawPath([...mtninfo['trails'][trail]['path']], 'trail', mtnstatus['trails'][trail] == 1 ? 'open' : mtnstatus['trails'][trail] === 0 ? 'closed' : 'unknown');
+            }
         });
 
         var lifts = mtninfo['lifts'];
         Object.keys(lifts).forEach(lift => {
-            var polylines = mtninfo['lifts'][lift]['polylines'];
-            Object.keys(polylines).forEach(line => {
-                var x = polylines[line][0][0];
-                var y = polylines[line][0][1];
-                var curves = [];
-                for(var i = 1; i < Object.keys(polylines[line]).length; i++) {
-                    curves.push(polylines[line][i]);
-                }
-                drawBezier(x, y, curves, 'lift', mtnstatus['lifts'][lift] == 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown', dashAnimationIndex);
-            });
+            if(Object.keys(mtninfo['lifts']).includes(lift)) {
+                drawPath([...mtninfo['lifts'][lift]['path']], 'lift', mtnstatus['lifts'][lift] === 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown');
+            }
         });
-
-        if(dashAnimationIndex >= 0) {
-            dashAnimationIndex -= 1;
-        } else {
-            dashAnimationIndex = dashLength;
-        }
-
-        if(getCookie('animate-lifts') === 'true') {
-            setTimeout(function() {
-                window.requestAnimationFrame(drawMountainStatus);
-            }, 200);
-        }
     }
 
-    function drawBezier(x, y, curves, type, status, startOffset) {
+    function drawPath(path, type, status, startOffset) {
         var ctx = document.getElementById('render').getContext('2d');
         if(type === 'trail') {
             ctx.strokeStyle = getCookie(`trail-${status}-color`);
-            ctx.setLineDash([]);
-            ctx.lineCap = 'butt';
+            ctx.lineCap = 'round';
         } else if(type === 'lift') {
             ctx.strokeStyle = getCookie(`lift-${status}-color`);
-            ctx.setLineDash([1, dashLength]);
-            if(status === 'open') {
-                ctx.lineDashOffset = startOffset;
-            } else {
-                ctx.lineDashOffset = 0;
-            }
             ctx.lineCap = 'round';
         }
         ctx.lineWidth = getCookie('line-width');
+        var paused = false;
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        for (i = 0; i < curves.length; i++) {
-            c = curves[i];
-            ctx.bezierCurveTo(c[0], c[1], c[2], c[3], c[4], c[5]);
-            ctx.moveTo(c[4], c[5]);
+        ctx.moveTo(path.shift(), path.shift());
+        while(path.length > 0) {
+            if(path[0] == -1) {
+                paused = true;
+                path.shift();
+            } else {
+                if(paused) {
+                    ctx.stroke();
+                    ctx.moveTo(path.shift(), path.shift());
+                    paused = false;
+                } else {
+                    ctx.lineTo(path.shift(), path.shift());
+                }
+            }
             ctx.stroke();
         }
     }
