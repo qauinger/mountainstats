@@ -68,7 +68,7 @@ app.get('/m/:mtn', async (req, res) => {
                 css: css(req),
                 title:`MountainStats | ${mountains[mtn]['name']}`,
                 mountain: mtn, 
-                mtninfo: JSON.parse(file.toString())[mtn],
+                mtninfo: JSON.parse(file.toString()),
                 mtnstatus: JSON.parse(status.toString()),
                 lastChecked: new Date(JSON.parse(status.toString())['lastChecked'] * 1000).toLocaleString()
         });

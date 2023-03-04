@@ -4,6 +4,11 @@
             "name":"Bristol Mountain",
             "region":"NY",
             "locality":"Canandaigua"
+        },
+        "swain_resort": {
+            "name":"Swain Resort",
+            "region":"NY",
+            "locality":"Swain"
         }
     }
 }

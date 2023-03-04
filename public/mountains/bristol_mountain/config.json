@@ -192,9 +192,6 @@
                 "open_regex":"Morning Star QuadOPEN",
                 "closed_regex":"Morning Star QuadCLOSED"
             }
-        },
-        "lastUpdated": {
-            "regex":"This page was last updated: (?<date>[\\w,@: ]*)"
         }
     }
 }
