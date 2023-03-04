@@ -9,6 +9,11 @@
             "name":"Swain Resort",
             "region":"NY",
             "locality":"Swain"
+        },
+        "west_mountain": {
+            "name":"West Mountain",
+            "region":"NY",
+            "locality":"Queensbury"
         }
     }
 }

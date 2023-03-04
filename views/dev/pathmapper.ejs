@@ -16,9 +16,7 @@
 </div>
 <canvas id="canvas" style="display: none;"></canvas>
 <div id="export-area" style="display: none;">
-    <button id="copy-export">Copy to Clipboard</button>
-    <br>
-    <textarea id="export"></textarea>
+    <textarea id="export" disabled></textarea>
 </div>
 
 <script>
@@ -50,15 +48,22 @@
         drawPath();
     }
     document.getElementById('undo').onclick = function() {
-        if(path[path.length - 1] == -1) {
-            path.pop();
-            document.getElementById('path-status').innerText = '';
-        }
-        path.pop();
-        drawPath();
+        undoPath();
     }
 
     document.getElementById('reset-path').onclick = function() {
+        resetPath();
+    }
+    
+    document.getElementById('pause-path').onclick = function() {
+        pausePath();
+    }
+
+    document.getElementById('export-path').onclick = function() {
+        exportPath();
+    }
+
+    function resetPath() {
         let confirmClear = confirm('Are you sure you want to reset the path?');
         if(confirmClear) {
             path = [];
@@ -67,20 +72,28 @@
         }
     }
 
-    document.getElementById('pause-path').onclick = function() {
+    function pausePath() {
         if(path.length > 0) {
             if(path[path.length - 1] == -1) {
                 path.pop();
-                document.getElementById('path-status').innerText = '';
+                //document.getElementById('path-status').innerText = '';
             } else {
                 path.push(-1);
-                document.getElementById('path-status').innerText = 'Path paused';
+                //document.getElementById('path-status').innerText = 'Path paused';
             }
         }
     }
 
-    
-    document.getElementById('export-path').onclick = function() {
+    function undoPath() {
+        if(path[path.length - 1] == -1) {
+            path.pop();
+            document.getElementById('path-status').innerText = '';
+        }
+        path.pop();
+        drawPath();
+    }
+
+    function exportPath() {
         var name = document.getElementById('path-name').value;
         var id = document.getElementById('path-id').value;
         document.getElementById('export').innerText = `"${id}":{"name":"${name}","path":[${path.toString()}]}`;
@@ -90,10 +103,6 @@
         document.getElementById('export').select();
     }
 
-    document.getElementById('copy-export').onclick = function() {
-        // navigator.clipboard.writeText(document.getElementById('export').textContent);
-    }
-
     canvas.addEventListener('mousedown', function(e) {
         document.getElementById('path-status').innerText = '';
         var rect = canvas.getBoundingClientRect();
@@ -101,7 +110,23 @@
         var y = Math.round(((event.clientY - rect.top) + Number.EPSILON) * 100) / 100;
         path.push([x, y]);
         drawPath();
-    })
+        canvas.focus();
+    });
+
+    window.addEventListener('keypress', (e) => {
+        if(e.ctrlKey) {
+            if(e.key === 'p') {
+                pausePath();
+            } else if(e.key === 'r') {
+                resetPath();
+            } else if(e.key === 'z') {
+                undoPath();
+            } else if(e.key === 'e') {
+                exportPath();
+            }
+            e.preventDefault();
+        }
+    });
 
     function drawPath() {
         var canvas = document.getElementById('canvas');
