@@ -42,6 +42,7 @@
     var render = document.getElementById('render');
     const dashLength = 15;
     var dashAnimationIndex = dashLength;
+    var canvasScale = 1;
 
     window.onload = function() {
         if(getCookie('tos-acknowledge') == 'true') {
@@ -60,6 +61,7 @@
         map.onload = function() {
             render.height = map.height;
             render.width = map.width;
+            canvasScale = render.width / 2000;
             var ctx = render.getContext('2d');
             ctx.clearRect(0, 0, render.width, render.height);
             ctx.drawImage(map,0,0, render.width, render.height);
@@ -99,7 +101,7 @@
             ctx.strokeStyle = getCookie(`lift-${status}-color`);
             ctx.lineCap = 'round';
         }
-        ctx.lineWidth = getCookie('line-width');
+        ctx.lineWidth = getCookie('line-width') * canvasScale;
         var paused = false;
         ctx.beginPath();
         ctx.moveTo(path.shift(), path.shift());
@@ -156,7 +158,7 @@
         "trail-closed-color":"#AAAAAA",
         "lift-open-color":"#89172A",
         "lift-closed-color":"#AAAAAA",
-        "line-width":"13",
+        "line-width":"9",
         "theme": "1"
     }
 </script>

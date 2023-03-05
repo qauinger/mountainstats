@@ -1,1 +1,3 @@
 node_modules
+/updater.log
+public/mountains/*/status.json
