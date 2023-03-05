@@ -165,11 +165,12 @@ async function updateStatus(mountain) {
                 status = JSON.parse(statusFile);
                 var html = await getHTML(config['url']);
                 html = html.replace(/<[^>]*>?/gm, '');
+                html = html.replace(/(?:\r\n|\r|\n)/g, '');
                 
                 var trails = config['trails'];
                 Object.keys(trails).forEach(trail => {
-                    var open_regex = trails[trail]['open_regex'];
-                    var closed_regex = trails[trail]['closed_regex'];
+                    var open_regex = new RegExp(trails[trail]['open_regex'], 'm');
+                    var closed_regex = new RegExp(trails[trail]['closed_regex'], 'm');
 
                     if(html.match(open_regex) !== null) {
                         status['trails'][trail] = 1;

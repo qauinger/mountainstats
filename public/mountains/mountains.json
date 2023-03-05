@@ -14,6 +14,11 @@
             "name":"West Mountain",
             "region":"NY",
             "locality":"Queensbury"
+        },
+        "oak_mountain": {
+            "name":"Oak Mountain",
+            "region":"NY",
+            "locality":"Speculator"
         }
     }
 }
