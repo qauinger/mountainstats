@@ -40,8 +40,9 @@
     var mtnstatus = <%- JSON.stringify(mtnstatus) %>;
     var map = new Image();
     var render = document.getElementById('render');
-    const dashLength = 15;
-    var dashAnimationIndex = dashLength;
+    var animateLifts = getCookie('animate-lifts') == 'true' ? true : false;
+    var dashLength = 0;
+    var dashAnimationIndex = 0;
     var canvasScale = 1;
 
     window.onload = function() {
@@ -87,9 +88,12 @@
         var lifts = mtninfo['lifts'];
         Object.keys(lifts).forEach(lift => {
             if(Object.keys(mtninfo['lifts']).includes(lift)) {
-                drawPath([...mtninfo['lifts'][lift]['path']], 'lift', mtnstatus['lifts'][lift] === 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown');
+                drawPath([...mtninfo['lifts'][lift]['path']], 'lift', mtnstatus['lifts'][lift] === 1 ? 'open' : mtnstatus['lifts'][lift] === 0 ? 'closed' : 'unknown', dashAnimationIndex);
             }
         });
+
+        if(animateLifts)
+            dashAnimationIndex = dashAnimationIndex >= 0 ? dashAnimationIndex -= 1 : dashLength;
     }
 
     function drawPath(path, type, status, startOffset) {
@@ -97,11 +101,19 @@
         if(type === 'trail') {
             ctx.strokeStyle = getCookie(`trail-${status}-color`);
             ctx.lineCap = 'round';
+            ctx.setLineDash([]);
         } else if(type === 'lift') {
             ctx.strokeStyle = getCookie(`lift-${status}-color`);
             ctx.lineCap = 'round';
+            ctx.setLineDash([1, dashLength]);
+            if(status === 'open') {
+                ctx.lineDashOffset = startOffset;
+            } else {
+                ctx.lineDashOffset = 0;
+            }
         }
         ctx.lineWidth = getCookie('line-width') * canvasScale;
+        dashLength = ctx.lineWidth;
         var paused = false;
         ctx.beginPath();
         ctx.moveTo(path.shift(), path.shift());

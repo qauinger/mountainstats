@@ -5,6 +5,11 @@
             "region":"NY",
             "locality":"Canandaigua"
         },
+        "oak_mountain": {
+            "name":"Oak Mountain",
+            "region":"NY",
+            "locality":"Speculator"
+        },
         "swain_resort": {
             "name":"Swain Resort",
             "region":"NY",
@@ -14,11 +19,6 @@
             "name":"West Mountain",
             "region":"NY",
             "locality":"Queensbury"
-        },
-        "oak_mountain": {
-            "name":"Oak Mountain",
-            "region":"NY",
-            "locality":"Speculator"
         }
     }
 }
