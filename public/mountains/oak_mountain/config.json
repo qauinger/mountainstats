@@ -89,6 +89,10 @@
             "skid way": {
                 "open_regex": "SkidwayOPEN",
                 "closed_regex": "SkidwayCLOSED"
+            },
+            "tubing_hill": {
+                "open_regex": "Tubing HillOPEN",
+                "closed_regex": "Tubing HillCLOSED"
             }
         },
         "lifts": {
