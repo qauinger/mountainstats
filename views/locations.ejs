@@ -1,0 +1,13 @@
+<h3>All mountains</h3>
+<iframe id="map" src="https://www.google.com/maps/d/embed?mid=1u17HZYY8Vo51MwUOSfJoYzRdVWiijZo&ehbc=2E312F" width="100%" onload="resizeMap();"></iframe>
+
+<script>
+    window.addEventListener('resize', function() {
+        resizeMap();
+    });
+
+    function resizeMap() {
+        var map = document.getElementById('map');
+        map.style.height = `${map.getBoundingClientRect()['width'] * 2/3}px`;
+    }
+</script>

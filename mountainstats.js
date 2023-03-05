@@ -59,6 +59,13 @@ app.get('/legal', (req, res) => {
     });
 });
 
+app.get('/locations', (req, res) => {
+    res.render('locations', {
+            css: css(req),
+            title:'MountainStats | Locations'
+    });
+});
+
 app.get('/m/:mtn', async (req, res) => {
     try {
         var mtn = req.params.mtn;

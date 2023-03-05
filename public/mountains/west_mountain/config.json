@@ -123,23 +123,23 @@
                 "closed_regex": "Brandt's PassGreenClosed"
             },
             "northwest_glades": {
-                "open_regex": "Northwest GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only",
-                "closed_regex": "Northwest GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only"
+                "open_regex": "Northwest GladesBlackOpen",
+                "closed_regex": "Northwest GladesBlackClosed"
             },
             "hot_glades": {
-                "open_regex": "Hot GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only",
-                "closed_regex": ""
+                "open_regex": "Hot GladesBlackOpen",
+                "closed_regex": "Hot GladesBlackClosed"
             },
             "voltage_glades": {
-                "open_regex": "Voltage GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only",
+                "open_regex": "Voltage GladesBlackOpen",
                 "closed_regex": "voltage gladesGreenClosed"
             },
             "insanity_glades": {
-                "open_regex": "Insanity GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only",
+                "open_regex": "Insanity GladesBlackOpen",
                 "closed_regex": "insanity gladesGreenClosed"
             },
             "liability_glades": {
-                "open_regex": "Liability GladesBlackUnmarked, ungroomed, unpatrolled--Experts Only",
+                "open_regex": "Liability GladesBlackOpen",
                 "closed_regex": "liability gladesGreenClosed"
             },
             "tubing_park": {

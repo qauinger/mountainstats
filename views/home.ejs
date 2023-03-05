@@ -11,6 +11,7 @@
         <li class="mtn-item"><span id='mtn-item-<%=mountain%>'><a href="http://qauinger.com/mountainstats/m/<%=mountain%>"><%= info['name'] %> (<%= info['locality'] %>, <%= info['region'] %>)</a></span><a class="star" onclick="toggleFavorite('<%=mountain%>')"><span class="star" id="favorite-<%=mountain%>">☆</span></a></li>
     <% }); %>
 </ol>
+<p class="underline"><a href="http://qauinger.com/mountainstats/locations">View a map of all mountains</a></p>
 
 <script>
     window.onload = function() {
