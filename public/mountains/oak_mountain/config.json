@@ -111,6 +111,10 @@
             "prestons_surface_lift": {
                 "open_regex": "Preston's Surface LiftOPEN",
                 "closed_regex": "Preston's Surface LiftCLOSED"
+            },
+            "tube_tow": {
+                "open_regex": "Tubing HillOPEN",
+                "closed_regex": "Tubing HillCLOSED"
             }
         }
     }
