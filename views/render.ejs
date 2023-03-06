@@ -45,6 +45,19 @@
     var dashAnimationIndex = 0;
     var canvasScale = 1;
 
+    const default_prefs = {
+        "recents":"true",
+        "favorites":"true",
+        "animate-lifts":"true",
+        "weather-widget": "true",
+        "trail-open-color":"#4F7A28",
+        "trail-closed-color":"#AAAAAA",
+        "lift-open-color":"#89172A",
+        "lift-closed-color":"#AAAAAA",
+        "line-width":"9",
+        "theme": "1"
+    }
+
     window.onload = function() {
         if(getCookie('tos-acknowledge') == 'true') {
             var tos = document.getElementById('tos-warning');
@@ -160,18 +173,5 @@
 
     function getDefaultPref(id) {
         return default_prefs[id];
-    }
-
-    const default_prefs = {
-        "recents":"true",
-        "favorites":"true",
-        "animate-lifts":"true",
-        "weather-widget": "true",
-        "trail-open-color":"#4F7A28",
-        "trail-closed-color":"#AAAAAA",
-        "lift-open-color":"#89172A",
-        "lift-closed-color":"#AAAAAA",
-        "line-width":"9",
-        "theme": "1"
     }
 </script>

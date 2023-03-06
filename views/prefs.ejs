@@ -44,6 +44,18 @@
 </div>
 
 <script>
+    const default_prefs = {
+        "favorites":"true",
+        "animate-lifts":"true",
+        "weather-widget": "true",
+        "trail-open-color":"#4F7A28",
+        "trail-closed-color":"#AAAAAA",
+        "lift-open-color":"#89172A",
+        "lift-closed-color":"#AAAAAA",
+        "line-width":"9",
+        "theme": "1"
+    }
+
     window.onload = function() {
         loadPrefs();
     }
@@ -62,18 +74,6 @@
             removeAllCookies();
             loadPrefs();
         }
-    }
-
-    const default_prefs = {
-        "favorites":"true",
-        "animate-lifts":"true",
-        "weather-widget": "true",
-        "trail-open-color":"#4F7A28",
-        "trail-closed-color":"#AAAAAA",
-        "lift-open-color":"#89172A",
-        "lift-closed-color":"#AAAAAA",
-        "line-width":"9",
-        "theme": "1"
     }
 
     function getDefaultPref(id) {
