@@ -118,8 +118,7 @@ fs.readFile('public/mountains/mountains.json', 'utf8', function (err, data) {
 });
 
 function css(req) {
-    // return req.useragent.isMobile ? 'mobile.css' : 'desktop.css';
-    return 'desktop.css';
+    return req.useragent.isMobile ? 'mobile.css' : 'desktop.css';
 }
 
 function update() {
