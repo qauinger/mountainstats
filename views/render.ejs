@@ -35,16 +35,6 @@
 </div>
 
 <script>
-    var mtn = '<%- mountain %>';
-    var mtninfo = <%- JSON.stringify(mtninfo) %>;
-    var mtnstatus = <%- JSON.stringify(mtnstatus) %>;
-    var map = new Image();
-    var render = document.getElementById('render');
-    var animateLifts = getCookie('animate-lifts') == 'true' ? true : false;
-    var dashLength = 0;
-    var dashAnimationIndex = 0;
-    var canvasScale = 1;
-
     const default_prefs = {
         "recents":"true",
         "favorites":"true",
@@ -57,6 +47,16 @@
         "line-width":"9",
         "theme": "1"
     }
+
+    var mtn = '<%- mountain %>';
+    var mtninfo = <%- JSON.stringify(mtninfo) %>;
+    var mtnstatus = <%- JSON.stringify(mtnstatus) %>;
+    var map = new Image();
+    var render = document.getElementById('render');
+    var animateLifts = getCookie('animate-lifts') == 'true' ? true : false;
+    var dashLength = 0;
+    var dashAnimationIndex = 0;
+    var canvasScale = 1;
 
     window.onload = function() {
         if(getCookie('tos-acknowledge') == 'true') {
