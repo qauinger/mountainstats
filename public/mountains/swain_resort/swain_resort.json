@@ -3,7 +3,6 @@
     "region":"NY",
     "locality":"Swain",
     "url":"https://swain.com",
-    "stats_url":"https://swain.com/swain-trail-report/",
     "geocoord": "42d48n77d85",
     "trails": {
         "magic_mountain":{"name":"Magic Mountain","path":[558.33,475.33,563.33,481.33,565.33,487.33,565.33,494.33,-1,558,509.33,554,514.33,552,519.33,552.67,524.67]},

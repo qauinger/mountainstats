@@ -1,121 +1,120 @@
 {
-    "oak_mountain": {
-        "url":"https://www.oakmountainski.com/mountain/the-mountain/snowreport",
-        "trails": {
-            "bunny_hill": {
-                "open_regex": "Bunny HillOPEN",
-                "closed_regex": "Bunny HillCLOSED"
-            },
-            "crosscut": {
-                "open_regex": "CrosscutOPEN",
-                "closed_regex": "CrosscutCLOSED"
-            },
-            "sugarbush": {
-                "open_regex": "SugarbushOPEN",
-                "closed_regex": "SugarbushCLOSED"
-            },
-            "madison_ave": {
-                "open_regex": "Madison AveOPEN",
-                "closed_regex": "Madison AveCLOSED"
-            },
-            "upper_speculator": {
-                "open_regex": "Upper SpeculatorOPEN",
-                "closed_regex": "Upper SpeculatorCLOSED"
-            },
-            "lower_speculator": {
-                "open_regex": "Lower SpeculatorOPEN",
-                "closed_regex": "Lower SpeculatorCLOSED"
-            },
-            "sacandaga": {
-                "open_regex": "SacandagaOPEN",
-                "closed_regex": "SacandagaCLOSED"
-            },
-            "upper_midway": {
-                "open_regex": "Upper MidwayOPEN",
-                "closed_regex": "Upper MidwayCLOSED"
-            },
-            "lower_midway": {
-                "open_regex": "Lower MidwayOPEN",
-                "closed_regex": "Lower MidwayCLOSED"
-            },
-            "nova": {
-                "open_regex": "NovaOPEN",
-                "closed_regex": "NovaCLOSED"
-            },
-            "fifth_avenue": {
-                "open_regex": "Fifth AvenueOPEN",
-                "closed_regex": "Fifth AvenueCLOSED"
-            },
-            "lower_devils_delight": {
-                "open_regex": "Lower Devil's DelightOPEN",
-                "closed_regex": "Lower Devil's DelightCLOSED"
-            },
-            "ryans_run": {
-                "open_regex": "Ryan's RunOPEN",
-                "closed_regex": "Ryan's RunCLOSED"
-            },
-            "kunjamunk": {
-                "open_regex": "KunjamunkOPEN",
-                "closed_regex": "KunjamunkCLOSED"
-            },
-            "tag": {
-                "open_regex": "TAGOPEN",
-                "closed_regex": "TAGCLOSED"
-            },
-            "alternate": {
-                "open_regex": "AlternateOPEN",
-                "closed_regex": "AlternateCLOSED"
-            },
-            "tlp_glades": {
-                "open_regex": "TLP GladesOPEN",
-                "closed_regex": "TLP GladesCLOSED"
-            },
-            "oak_mountain_run": {
-                "open_regex": "Oak Mountain RunOPEN",
-                "closed_regex": "Oak Mountain RunCLOSED"
-            },
-            "the_thing": {
-                "open_regex": "The ThingOPEN",
-                "closed_regex": "The ThingCLOSED"
-            },
-            "upper_devils_delight": {
-                "open_regex": "Upper Devil's DelightOPEN",
-                "closed_regex": "Upper Devil's DelightCLOSED"
-            },
-            "tnt_glades": {
-                "open_regex": "TNT GladesOPEN",
-                "closed_regex": "TNT GladesCLOSED"
-            },
-            "skid way": {
-                "open_regex": "SkidwayOPEN",
-                "closed_regex": "SkidwayCLOSED"
-            },
-            "tubing_hill": {
-                "open_regex": "Tubing HillOPEN",
-                "closed_regex": "Tubing HillCLOSED"
-            }
+    "url":"https://www.oakmountainski.com/mountain/the-mountain/snowreport",
+    "trails": {
+        "bunny_hill": {
+            "open_regex": "Bunny HillOPEN",
+            "closed_regex": "Bunny HillCLOSED"
         },
-        "lifts": {
-            "tree_bar": {
-                "open_regex": "Tree BarOPEN",
-                "closed_regex": "Tree BarCLOSED"
-            },
-            "einsteins_way": {
-                "open_regex": "Einstein's WayOPEN",
-                "closed_regex": "Einstein's WayCLOSED"
-            },
-            "village_tbar": {
-                "open_regex": "Village TBarOPEN",
-                "closed_regex": "Village TBarCLOSED"
-            },
-            "prestons_surface_lift": {
-                "open_regex": "Preston's Surface LiftOPEN",
-                "closed_regex": "Preston's Surface LiftCLOSED"
-            },
-            "tube_tow": {
-                "open_regex": "Tubing HillOPEN",
-                "closed_regex": "Tubing HillCLOSED"
-            }
+        "crosscut": {
+            "open_regex": "CrosscutOPEN",
+            "closed_regex": "CrosscutCLOSED"
+        },
+        "sugarbush": {
+            "open_regex": "SugarbushOPEN",
+            "closed_regex": "SugarbushCLOSED"
+        },
+        "madison_ave": {
+            "open_regex": "Madison AveOPEN",
+            "closed_regex": "Madison AveCLOSED"
+        },
+        "upper_speculator": {
+            "open_regex": "Upper SpeculatorOPEN",
+            "closed_regex": "Upper SpeculatorCLOSED"
+        },
+        "lower_speculator": {
+            "open_regex": "Lower SpeculatorOPEN",
+            "closed_regex": "Lower SpeculatorCLOSED"
+        },
+        "sacandaga": {
+            "open_regex": "SacandagaOPEN",
+            "closed_regex": "SacandagaCLOSED"
+        },
+        "upper_midway": {
+            "open_regex": "Upper MidwayOPEN",
+            "closed_regex": "Upper MidwayCLOSED"
+        },
+        "lower_midway": {
+            "open_regex": "Lower MidwayOPEN",
+            "closed_regex": "Lower MidwayCLOSED"
+        },
+        "nova": {
+            "open_regex": "NovaOPEN",
+            "closed_regex": "NovaCLOSED"
+        },
+        "fifth_avenue": {
+            "open_regex": "Fifth AvenueOPEN",
+            "closed_regex": "Fifth AvenueCLOSED"
+        },
+        "lower_devils_delight": {
+            "open_regex": "Lower Devil's DelightOPEN",
+            "closed_regex": "Lower Devil's DelightCLOSED"
+        },
+        "ryans_run": {
+            "open_regex": "Ryan's RunOPEN",
+            "closed_regex": "Ryan's RunCLOSED"
+        },
+        "kunjamunk": {
+            "open_regex": "KunjamunkOPEN",
+            "closed_regex": "KunjamunkCLOSED"
+        },
+        "tag": {
+            "open_regex": "TAGOPEN",
+            "closed_regex": "TAGCLOSED"
+        },
+        "alternate": {
+            "open_regex": "AlternateOPEN",
+            "closed_regex": "AlternateCLOSED"
+        },
+        "tlp_glades": {
+            "open_regex": "TLP GladesOPEN",
+            "closed_regex": "TLP GladesCLOSED"
+        },
+        "oak_mountain_run": {
+            "open_regex": "Oak Mountain RunOPEN",
+            "closed_regex": "Oak Mountain RunCLOSED"
+        },
+        "the_thing": {
+            "open_regex": "The ThingOPEN",
+            "closed_regex": "The ThingCLOSED"
+        },
+        "upper_devils_delight": {
+            "open_regex": "Upper Devil's DelightOPEN",
+            "closed_regex": "Upper Devil's DelightCLOSED"
+        },
+        "tnt_glades": {
+            "open_regex": "TNT GladesOPEN",
+            "closed_regex": "TNT GladesCLOSED"
+        },
+        "skid way": {
+            "open_regex": "SkidwayOPEN",
+            "closed_regex": "SkidwayCLOSED"
+        },
+        "tubing_hill": {
+            "open_regex": "Tubing HillOPEN",
+            "closed_regex": "Tubing HillCLOSED"
+        }
+    },
+    "lifts": {
+        "tree_bar": {
+            "open_regex": "Tree BarOPEN",
+            "closed_regex": "Tree BarCLOSED"
+        },
+        "einsteins_way": {
+            "open_regex": "Einstein's WayOPEN",
+            "closed_regex": "Einstein's WayCLOSED"
+        },
+        "village_tbar": {
+            "open_regex": "Village TBarOPEN",
+            "closed_regex": "Village TBarCLOSED"
+        },
+        "prestons_surface_lift": {
+            "open_regex": "Preston's Surface LiftOPEN",
+            "closed_regex": "Preston's Surface LiftCLOSED"
+        },
+        "tube_tow": {
+            "open_regex": "Tubing HillOPEN",
+            "closed_regex": "Tubing HillCLOSED"
         }
     }
 }
+

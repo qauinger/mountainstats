@@ -1,150 +1,148 @@
 {
-    "swain_resort": {
-        "url":"https://swain.com/swain-trail-report/",
-        "trails": {
-            "magic_mountain": {
-                "open_regex":"Magic MountainOPEN",
-                "closed_regex":"Magic MountainCLOSED"
-            },
-            "shadow_mountain": {
-                "open_regex":"Shadow MountainOPEN",
-                "closed_regex":"Shadow MountainCLOSED"
-            },
-            "round_top": {
-                "open_regex":"Round TopOPEN",
-                "closed_regex":"Round TopCLOSED"
-            },
-            "lower_robinson": {
-                "open_regex":"Lower RobinsonOPEN",
-                "closed_regex":"Lower RobinsonCLOSED"
-            },
-            "lower_brewer": {
-                "open_regex":"Lower BrewerOPEN",
-                "closed_regex":"Lower BrewerCLOSED"
-            },
-            "upper_mile_sweep": {
-                "open_regex":"Upper Mile SweepOPEN",
-                "closed_regex":"Upper Mile SweepCLOSED"
-            },
-            "lower_mile_sweep": {
-                "open_regex":"Lower Mile SweepOPEN",
-                "closed_regex":"Lower Mile SweepCLOSED"
-            },
-            "black_forest": {
-                "open_regex":"Black ForestOPEN",
-                "closed_regex":"Black ForestCLOSED"
-            },
-            "promenade": {
-                "open_regex":"PromenadeOPEN",
-                "closed_regex":"PromenadeCLOSED"
-            },
-            "lower_maverick": {
-                "open_regex":"Lower MaverickOPEN",
-                "closed_regex":"Lower MaverickCLOSED"
-            },
-            "illusion": {
-                "open_regex":"IllusionOPEN",
-                "closed_regex":"IllusionCLOSED"
-            },
-            "clark": {
-                "open_regex":"ClarkOPEN",
-                "closed_regex":"ClarkCLOSED"
-            },
-            "80_acres": {
-                "open_regex":"80 AcresOPEN",
-                "closed_regex":"80 AcresCLOSED"
-            },
-            "testament": {
-                "open_regex":"TestamentOPEN",
-                "closed_regex":"TestamentCLOSED"
-            },
-            "the_pass": {
-                "open_regex":"The PassOPEN",
-                "closed_regex":"The PassCLOSED"
-            },
-            "fools_gold": {
-                "open_regex":"Fools GoldOPEN",
-                "closed_regex":"Fools GoldCLOSED"
-            },
-            "bandits_pass": {
-                "open_regex":"Bandits PassOPEN",
-                "closed_regex":"Bandits PassCLOSED"
-            },
-            "lower_twister": {
-                "open_regex":"Lower TwisterOPEN",
-                "closed_regex":"Lower TwisterCLOSED"
-            },
-            "upper_maverick": {
-                "open_regex":"Upper MaverickOPEN",
-                "closed_regex":"Upper MaverickCLOSED"
-            },
-            "dozey_doe": {
-                "open_regex":"Dozey DoeOPEN",
-                "closed_regex":"Dozey DoeCLOSED"
-            },
-            "ben_blakely": {
-                "open_regex":"Ben BlakelyOPEN",
-                "closed_regex":"Ben BlakelyCLOSED"
-            },
-            "allegany_glades": {
-                "open_regex":"Allegany GladesOPEN",
-                "closed_regex":"Allegany GladesCLOSED"
-            },
-            "hidden_shadows": {
-                "open_regex":"Hidden ShadowsOPEN",
-                "closed_regex":"Hidden ShadowsCLOSED"
-            },
-            "shakeys_trees": {
-                "open_regex":"Shakey&#8217;s TreesOPEN",
-                "closed_regex":"Shakey&#8217;s TreesCLOSED"
-            },
-            "wheels_run": {
-                "open_regex":"Wheel&#8217;s RunOPEN",
-                "closed_regex":"Wheel&#8217;s RunCLOSED"
-            },
-            "upper_robinson": {
-                "open_regex":"Upper RobinsonOPEN",
-                "closed_regex":"Upper RobinsonCLOSED"
-            },
-            "upper_brewer": {
-                "open_regex":"Upper BrewerOPEN",
-                "closed_regex":"Upper BrewerCLOSED"
-            },
-            "glens_run": {
-                "open_regex":"Glen&#8217;s RunOPEN",
-                "closed_regex":"Glen&#8217;s RunCLOSED"
-            },
-            "pines": {
-                "open_regex":"PinesOPEN",
-                "closed_regex":"PinesCLOSED"
-            },
-            "rattler": {
-                "open_regex":"RattlerOPEN",
-                "closed_regex":"RattlerCLOSED"
-            },
-            "old_main": {
-                "open_regex":"Old MainOPEN",
-                "closed_regex":"Old MainCLOSED"
-            },
-            "robins_way": {
-                "open_regex":"Robin&#8217;s WayOPEN",
-                "closed_regex":"Robin&#8217;s WayCLOSED"
-            },
-            "daves_run": {
-                "open_regex":"Dave&#8217;s RunOPEN",
-                "closed_regex":"Dave&#8217;s RunCLOSED"
-            },
-            "last_will": {
-                "open_regex":"Last WillOPEN",
-                "closed_regex":"Last WillCLOSED"
-            },
-            "outlaw": {
-                "open_regex":"OutlawOPEN",
-                "closed_regex":"OutlawCLOSED"
-            }
+    "url":"https://swain.com/swain-trail-report/",
+    "trails": {
+        "magic_mountain": {
+            "open_regex":"Magic MountainOPEN",
+            "closed_regex":"Magic MountainCLOSED"
         },
-        "lifts": {
-            
+        "shadow_mountain": {
+            "open_regex":"Shadow MountainOPEN",
+            "closed_regex":"Shadow MountainCLOSED"
+        },
+        "round_top": {
+            "open_regex":"Round TopOPEN",
+            "closed_regex":"Round TopCLOSED"
+        },
+        "lower_robinson": {
+            "open_regex":"Lower RobinsonOPEN",
+            "closed_regex":"Lower RobinsonCLOSED"
+        },
+        "lower_brewer": {
+            "open_regex":"Lower BrewerOPEN",
+            "closed_regex":"Lower BrewerCLOSED"
+        },
+        "upper_mile_sweep": {
+            "open_regex":"Upper Mile SweepOPEN",
+            "closed_regex":"Upper Mile SweepCLOSED"
+        },
+        "lower_mile_sweep": {
+            "open_regex":"Lower Mile SweepOPEN",
+            "closed_regex":"Lower Mile SweepCLOSED"
+        },
+        "black_forest": {
+            "open_regex":"Black ForestOPEN",
+            "closed_regex":"Black ForestCLOSED"
+        },
+        "promenade": {
+            "open_regex":"PromenadeOPEN",
+            "closed_regex":"PromenadeCLOSED"
+        },
+        "lower_maverick": {
+            "open_regex":"Lower MaverickOPEN",
+            "closed_regex":"Lower MaverickCLOSED"
+        },
+        "illusion": {
+            "open_regex":"IllusionOPEN",
+            "closed_regex":"IllusionCLOSED"
+        },
+        "clark": {
+            "open_regex":"ClarkOPEN",
+            "closed_regex":"ClarkCLOSED"
+        },
+        "80_acres": {
+            "open_regex":"80 AcresOPEN",
+            "closed_regex":"80 AcresCLOSED"
+        },
+        "testament": {
+            "open_regex":"TestamentOPEN",
+            "closed_regex":"TestamentCLOSED"
+        },
+        "the_pass": {
+            "open_regex":"The PassOPEN",
+            "closed_regex":"The PassCLOSED"
+        },
+        "fools_gold": {
+            "open_regex":"Fools GoldOPEN",
+            "closed_regex":"Fools GoldCLOSED"
+        },
+        "bandits_pass": {
+            "open_regex":"Bandits PassOPEN",
+            "closed_regex":"Bandits PassCLOSED"
+        },
+        "lower_twister": {
+            "open_regex":"Lower TwisterOPEN",
+            "closed_regex":"Lower TwisterCLOSED"
+        },
+        "upper_maverick": {
+            "open_regex":"Upper MaverickOPEN",
+            "closed_regex":"Upper MaverickCLOSED"
+        },
+        "dozey_doe": {
+            "open_regex":"Dozey DoeOPEN",
+            "closed_regex":"Dozey DoeCLOSED"
+        },
+        "ben_blakely": {
+            "open_regex":"Ben BlakelyOPEN",
+            "closed_regex":"Ben BlakelyCLOSED"
+        },
+        "allegany_glades": {
+            "open_regex":"Allegany GladesOPEN",
+            "closed_regex":"Allegany GladesCLOSED"
+        },
+        "hidden_shadows": {
+            "open_regex":"Hidden ShadowsOPEN",
+            "closed_regex":"Hidden ShadowsCLOSED"
+        },
+        "shakeys_trees": {
+            "open_regex":"Shakey&#8217;s TreesOPEN",
+            "closed_regex":"Shakey&#8217;s TreesCLOSED"
+        },
+        "wheels_run": {
+            "open_regex":"Wheel&#8217;s RunOPEN",
+            "closed_regex":"Wheel&#8217;s RunCLOSED"
+        },
+        "upper_robinson": {
+            "open_regex":"Upper RobinsonOPEN",
+            "closed_regex":"Upper RobinsonCLOSED"
+        },
+        "upper_brewer": {
+            "open_regex":"Upper BrewerOPEN",
+            "closed_regex":"Upper BrewerCLOSED"
+        },
+        "glens_run": {
+            "open_regex":"Glen&#8217;s RunOPEN",
+            "closed_regex":"Glen&#8217;s RunCLOSED"
+        },
+        "pines": {
+            "open_regex":"PinesOPEN",
+            "closed_regex":"PinesCLOSED"
+        },
+        "rattler": {
+            "open_regex":"RattlerOPEN",
+            "closed_regex":"RattlerCLOSED"
+        },
+        "old_main": {
+            "open_regex":"Old MainOPEN",
+            "closed_regex":"Old MainCLOSED"
+        },
+        "robins_way": {
+            "open_regex":"Robin&#8217;s WayOPEN",
+            "closed_regex":"Robin&#8217;s WayCLOSED"
+        },
+        "daves_run": {
+            "open_regex":"Dave&#8217;s RunOPEN",
+            "closed_regex":"Dave&#8217;s RunCLOSED"
+        },
+        "last_will": {
+            "open_regex":"Last WillOPEN",
+            "closed_regex":"Last WillCLOSED"
+        },
+        "outlaw": {
+            "open_regex":"OutlawOPEN",
+            "closed_regex":"OutlawCLOSED"
         }
+    },
+    "lifts": {
+        
     }
 }

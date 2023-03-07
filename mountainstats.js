@@ -167,7 +167,7 @@ async function updateStatus(mountain) {
                     updateStatus(mountain);
                     return;
                 }
-                config = JSON.parse(configFile)[mountain];
+                config = JSON.parse(configFile);
                 status = JSON.parse(statusFile);
                 var html = await getHTML(config['url']);
                 html = html.replace(/<[^>]*>?/gm, '');

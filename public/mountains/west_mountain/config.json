@@ -1,154 +1,152 @@
 {
-    "west_mountain": {
         "url":"https://westmountain.com/trail-conditions/",
-        "trails": {
-            "melon_patch_south": {
-                "open_regex": "Melon Patch \\(South\\)-Learning AreaGreenOpen",
-                "closed_regex": "Melon Patch \\(South\\)\\-Learning AreaGreenClosed"
-            },
-            "melon_patch_north": {
-                "open_regex": "Melon Patch \\(North\\)\\-Learning AreaGreenOpen",
-                "closed_regex": "Melon Patch \\(North\\)\\-Learning AreaGreenClosed"
-            },
-            "the_race_face": {
-                "open_regex": "The Race Face \\(South\\)GreenOpen",
-                "closed_regex": "The Race Face \\(South\\)GreenClosed"
-            },
-            "the_north_face": {
-                "open_regex": "The North Face \\(TP\\)GreenOpen",
-                "closed_regex": "The North Face \\(TP\\)GreenClosed"
-            },
-            "gnarwall": {
-                "open_regex": "GnarwallBlueOpen",
-                "closed_regex": "GnarwallBlueClosed"
-            },
-            "gnarwall_north": {
-                "open_regex": "Gnarwall NorthBlueOpen",
-                "closed_regex": "Gnarwall NorthBlueClosed"
-            },
-            "the_cure": {
-                "open_regex": "The CureBlackOpen",
-                "closed_regex": "The CureBlackClosed"
-            },
-            "upper_holy_makerel": {
-                "open_regex": "Upper Holy MakerelGreenOpen",
-                "closed_regex": "Upper Holy MakerelGreenClosed"
-            },
-            "lower_holy_makerel": {
-                "open_regex": "Lower Holy MakerelGreenOpen",
-                "closed_regex": "Lower Holy MakerelGreenClosed"
-            },
-            "the_frolic": {
-                "open_regex": "The FrolicGreenOpen",
-                "closed_regex": "The FrolicGreenClosed"
-            },
-            "coy_dog": {
-                "open_regex": "Coy DogBlueOpen",
-                "closed_regex": "Coy DogBlueClosed"
-            },
-            "the_alley": {
-                "open_regex": "The AlleyBlueOpen",
-                "closed_regex": "The AlleyBlueClosed"
-            },
-            "chute": {
-                "open_regex": "ChuteGreenOpen",
-                "closed_regex": "ChuteGreenClosed"
-            },
-            "turtle_back": {
-                "open_regex": "Turtle BackGreenOpen",
-                "closed_regex": "Turtle BackGreenClosed"
-            },
-            "inchworm": {
-                "open_regex": "InchwormGreenOpen",
-                "closed_regex": "InchwormGreenClosed"
-            },
-            "the_meadows": {
-                "open_regex": "The MeadowsGreenOpen",
-                "closed_regex": "The MeadowsGreenClosed"
-            },
-            "slip_thru": {
-                "open_regex": "Slip ThruBlueOpen",
-                "closed_regex": "Slip ThruBlueClosed"
-            },
-            "bannister": {
-                "open_regex": "Bannister \\(TP\\)GreenOpen",
-                "closed_regex": "Bannister \\(TP\\)GreenClosed"
-            },
-            "crossover": {
-                "open_regex": "CrossoverBlueOpen",
-                "closed_regex": "CrossoverBlueClosed"
-            },
-            "shortcut": {
-                "open_regex": "ShortcutBlueOpen",
-                "closed_regex": "ShortcutBlueClosed"
-            },
-            "mach": {
-                "open_regex": "MachBlueOpen",
-                "closed_regex": "MachBlueClosed"
-            },
-            "go_go": {
-                "open_regex": "Go-GoBlueOpen",
-                "closed_regex": "Go-GoBlueClosed"
-            },
-            "northwest_passage": {
-                "open_regex": "Northwest PassageBlueOpen",
-                "closed_regex": "Northwest PassageBlueClosed"
-            },
-            "midway": {
-                "open_regex": "MidwayBlueOpen",
-                "closed_regex": "MidwayBlueClosed"
-            },
-            "aoa": {
-                "open_regex": "AOABlackOpen",
-                "closed_regex": "AOABlackClosed"
-            },
-            "evergreen_pass": {
-                "open_regex": "Evergreen PassGreenOpen",
-                "closed_regex": "Evergreen PassGreenClosed"
-            },
-            "gleasons_road": {
-                "open_regex": "Gleason's RoadBlueOpen",
-                "closed_regex": "Gleason's RoadBlueClosed"
-            },
-            "front_yard": {
-                "open_regex": "Front YardBlueOpen",
-                "closed_regex": "Front YardBlueClosed"
-            },
-            "connection": {
-                "open_regex": "ConnectionBlueOpen",
-                "closed_regex": "ConnectionBlueClosed"
-            },
-            "brandts_pass": {
-                "open_regex": "Brandt's PassGreenOpen",
-                "closed_regex": "Brandt's PassGreenClosed"
-            },
-            "northwest_glades": {
-                "open_regex": "Northwest GladesBlackOpen",
-                "closed_regex": "Northwest GladesBlackClosed"
-            },
-            "hot_glades": {
-                "open_regex": "Hot GladesBlackOpen",
-                "closed_regex": "Hot GladesBlackClosed"
-            },
-            "voltage_glades": {
-                "open_regex": "Voltage GladesBlackOpen",
-                "closed_regex": "voltage gladesGreenClosed"
-            },
-            "insanity_glades": {
-                "open_regex": "Insanity GladesBlackOpen",
-                "closed_regex": "insanity gladesGreenClosed"
-            },
-            "liability_glades": {
-                "open_regex": "Liability GladesBlackOpen",
-                "closed_regex": "liability gladesGreenClosed"
-            },
-            "tubing_park": {
-                "open_regex": "Tubing ParkGreenOpen",
-                "closed_regex": "Tubing ParkGreenClosed"
-            }
+    "trails": {
+        "melon_patch_south": {
+            "open_regex": "Melon Patch \\(South\\)-Learning AreaGreenOpen",
+            "closed_regex": "Melon Patch \\(South\\)\\-Learning AreaGreenClosed"
         },
-        "lifts": {
-            
+        "melon_patch_north": {
+            "open_regex": "Melon Patch \\(North\\)\\-Learning AreaGreenOpen",
+            "closed_regex": "Melon Patch \\(North\\)\\-Learning AreaGreenClosed"
+        },
+        "the_race_face": {
+            "open_regex": "The Race Face \\(South\\)GreenOpen",
+            "closed_regex": "The Race Face \\(South\\)GreenClosed"
+        },
+        "the_north_face": {
+            "open_regex": "The North Face \\(TP\\)GreenOpen",
+            "closed_regex": "The North Face \\(TP\\)GreenClosed"
+        },
+        "gnarwall": {
+            "open_regex": "GnarwallBlueOpen",
+            "closed_regex": "GnarwallBlueClosed"
+        },
+        "gnarwall_north": {
+            "open_regex": "Gnarwall NorthBlueOpen",
+            "closed_regex": "Gnarwall NorthBlueClosed"
+        },
+        "the_cure": {
+            "open_regex": "The CureBlackOpen",
+            "closed_regex": "The CureBlackClosed"
+        },
+        "upper_holy_makerel": {
+            "open_regex": "Upper Holy MakerelGreenOpen",
+            "closed_regex": "Upper Holy MakerelGreenClosed"
+        },
+        "lower_holy_makerel": {
+            "open_regex": "Lower Holy MakerelGreenOpen",
+            "closed_regex": "Lower Holy MakerelGreenClosed"
+        },
+        "the_frolic": {
+            "open_regex": "The FrolicGreenOpen",
+            "closed_regex": "The FrolicGreenClosed"
+        },
+        "coy_dog": {
+            "open_regex": "Coy DogBlueOpen",
+            "closed_regex": "Coy DogBlueClosed"
+        },
+        "the_alley": {
+            "open_regex": "The AlleyBlueOpen",
+            "closed_regex": "The AlleyBlueClosed"
+        },
+        "chute": {
+            "open_regex": "ChuteGreenOpen",
+            "closed_regex": "ChuteGreenClosed"
+        },
+        "turtle_back": {
+            "open_regex": "Turtle BackGreenOpen",
+            "closed_regex": "Turtle BackGreenClosed"
+        },
+        "inchworm": {
+            "open_regex": "InchwormGreenOpen",
+            "closed_regex": "InchwormGreenClosed"
+        },
+        "the_meadows": {
+            "open_regex": "The MeadowsGreenOpen",
+            "closed_regex": "The MeadowsGreenClosed"
+        },
+        "slip_thru": {
+            "open_regex": "Slip ThruBlueOpen",
+            "closed_regex": "Slip ThruBlueClosed"
+        },
+        "bannister": {
+            "open_regex": "Bannister \\(TP\\)GreenOpen",
+            "closed_regex": "Bannister \\(TP\\)GreenClosed"
+        },
+        "crossover": {
+            "open_regex": "CrossoverBlueOpen",
+            "closed_regex": "CrossoverBlueClosed"
+        },
+        "shortcut": {
+            "open_regex": "ShortcutBlueOpen",
+            "closed_regex": "ShortcutBlueClosed"
+        },
+        "mach": {
+            "open_regex": "MachBlueOpen",
+            "closed_regex": "MachBlueClosed"
+        },
+        "go_go": {
+            "open_regex": "Go-GoBlueOpen",
+            "closed_regex": "Go-GoBlueClosed"
+        },
+        "northwest_passage": {
+            "open_regex": "Northwest PassageBlueOpen",
+            "closed_regex": "Northwest PassageBlueClosed"
+        },
+        "midway": {
+            "open_regex": "MidwayBlueOpen",
+            "closed_regex": "MidwayBlueClosed"
+        },
+        "aoa": {
+            "open_regex": "AOABlackOpen",
+            "closed_regex": "AOABlackClosed"
+        },
+        "evergreen_pass": {
+            "open_regex": "Evergreen PassGreenOpen",
+            "closed_regex": "Evergreen PassGreenClosed"
+        },
+        "gleasons_road": {
+            "open_regex": "Gleason's RoadBlueOpen",
+            "closed_regex": "Gleason's RoadBlueClosed"
+        },
+        "front_yard": {
+            "open_regex": "Front YardBlueOpen",
+            "closed_regex": "Front YardBlueClosed"
+        },
+        "connection": {
+            "open_regex": "ConnectionBlueOpen",
+            "closed_regex": "ConnectionBlueClosed"
+        },
+        "brandts_pass": {
+            "open_regex": "Brandt's PassGreenOpen",
+            "closed_regex": "Brandt's PassGreenClosed"
+        },
+        "northwest_glades": {
+            "open_regex": "Northwest GladesBlackOpen",
+            "closed_regex": "Northwest GladesBlackClosed"
+        },
+        "hot_glades": {
+            "open_regex": "Hot GladesBlackOpen",
+            "closed_regex": "Hot GladesBlackClosed"
+        },
+        "voltage_glades": {
+            "open_regex": "Voltage GladesBlackOpen",
+            "closed_regex": "voltage gladesGreenClosed"
+        },
+        "insanity_glades": {
+            "open_regex": "Insanity GladesBlackOpen",
+            "closed_regex": "insanity gladesGreenClosed"
+        },
+        "liability_glades": {
+            "open_regex": "Liability GladesBlackOpen",
+            "closed_regex": "liability gladesGreenClosed"
+        },
+        "tubing_park": {
+            "open_regex": "Tubing ParkGreenOpen",
+            "closed_regex": "Tubing ParkGreenClosed"
         }
+    },
+    "lifts": {
+        
     }
 }

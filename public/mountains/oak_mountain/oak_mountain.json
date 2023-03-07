@@ -3,7 +3,6 @@
     "region":"NY",
     "locality":"Speculator",
     "url":"https://www.oakmountainski.com",
-    "stats_url":"https://www.oakmountainski.com/mountain/the-mountain/snowreport",
     "geocoord": "43d50n74d36",
     "trails": {
         "bunny_hill":{"name":"Bunny Hill","path":[751.12,1307,792.12,1338,-1,903.96,1433,967.96,1496]},

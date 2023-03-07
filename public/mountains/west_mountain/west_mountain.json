@@ -3,7 +3,6 @@
     "region":"NY",
     "locality":"Queensbury",
     "url":"https://westmountain.com/",
-    "stats_url":"https://westmountain.com/trail-conditions/",
     "geocoord": "43d35n73d68",
     "trails": {
         "melon_patch_south":{"name":"Melon Patch South","path":[1606.2,1919.96,1597.2,1919.96,1589.2,1920.96,1582.2,1923.96,-1,1413.23,2047.58,1407.23,2052.58,1405.23,2058.58,1406.23,2068.58,1414.23,2079.58,1428.23,2082.58,1445.23,2082.58]},
