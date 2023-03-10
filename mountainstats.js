@@ -66,6 +66,24 @@ app.get('/locations', (req, res) => {
     });
 });
 
+app.get('/m/:mtn/webcam/:cam', async (req, res) => {
+    try {
+        var mtn = req.params.mtn;
+        var cam = req.params.cam;
+        var file = fs.readFileSync(`public/mountains/${mtn}/${mtn}.json`);
+        res.render('webcam', {
+                css: css(req),
+                title:`MountainStats | ${mountains[mtn]['name']} Webcam`,
+                mountain: mtn, 
+                mtninfo: JSON.parse(file.toString()),
+                cam: JSON.parse(file)['webcams'][cam]
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect('/');
+    }
+});
+
 app.get('/m/:mtn', async (req, res) => {
     try {
         var mtn = req.params.mtn;

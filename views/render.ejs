@@ -4,6 +4,13 @@
     <p id="tos-warning">
         By using this site, you acknowledge the <a href="https://qauinger.com/mountainstats/legal" class="underline">terms of service</a>.
     </p>
+    <p>
+        <% if('webcams' in mtninfo) { %>
+            <% Object.keys(mtninfo['webcams']).forEach(webcam => { %>
+                <span><a href="https://qauinger.com/mountainstats/m/<%= mountain %>/webcam/<%= webcam %>" class="underline"><%- mtninfo['webcams'][webcam]['name'] %></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <% }); %>
+        <% } %>
+    </p>
 
     <table id="legend-table">
         <tbody>

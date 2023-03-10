@@ -35,5 +35,12 @@
         "village_tbar":{"name":"Village T-Bar","path":[1114,1186,1127,1136,-1,1160.59,1002.57,1225.59,754.35]},
         "prestons_surface_lift":{"name":"Preston's Surface Lift","path":[893.67,1481,891.67,1479,-1,743,1344.67,727,1330.67]},
         "tube_tow":{"name":"Tube Tow","path":[732.67,1646.67,733.67,1604.67,-1,735.67,1500.67,739.67,1397.67]}
+    },
+    "webcams": {
+        "live_webcam": {
+            "type": "image",
+            "name": "Live Webcam",
+            "src": "https://theswifter.com/oak000M.jpg"
+        }
     }
 }

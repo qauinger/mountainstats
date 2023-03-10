@@ -44,5 +44,17 @@
     },
     "lifts": {
 
+    },
+    "webcams": {
+        "west_express_face_cam": {
+            "type": "stream",
+            "name": "West Express Face Cam",
+            "src": "https://s84.ipcamlive.com/streams/54pqpcdrljuizrnge/stream.m3u8"
+        },
+        "sunrise_cam": {
+            "type": "stream",
+            "name": "Sunrise Cam",
+            "src": "https://s84.ipcamlive.com/streams/54zng0vfpawodihkw/stream.m3u8"
+        }
     }
 }
