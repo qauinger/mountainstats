@@ -54,5 +54,23 @@
         "morning_star_quad":{"name":"Morning Star Quad","path":[292.33,683.67,390.33,628.67,-1,485.67,577,569.67,532,814.33,363.67]},
         "rocket_triple":{"name":"Rocket Triple","path":[1432,952,1430,950,-1,1379.33,896.67,1373.33,890.67,1290.33,714.67,1282.33,701.67,1273.33,690.67,1263.33,680.67,1254.33,669.67,1247.33,655.67,1188.33,503.67,1174.33,468.67,1170.33,456.67,1162.33,443.67,1138.33,415.33,1103.33,376.33]},
         "sunset_double":{"name":"Sunset Double","path":[1336,972.33,1330,965.33,-1,1272.67,908.67,1112.67,724.67]}
+    },
+    "webcams": {
+        "launching_pad": {
+            "type":"stream",
+            "name": "Launching Pad Webcam",
+            "pos": [1331.33,1025],
+            "src": "https://live6.brownrice.com/embed/bristolmountain2"
+        },
+        "rocket": {
+            "type":"stream",
+            "name": "Rocket Webcam",
+            "src": "https://live6.brownrice.com/embed/bristolmountain1"
+        },
+        "morning_star": {
+            "type":"image",
+            "name": "Morning Star Webcam",
+            "src": "https://www.bristolmountain.com/webcams/morningstarcurrent.jpg"
+        }
     }
 }

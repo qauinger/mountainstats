@@ -1,0 +1,23 @@
+<div>
+    <h1 class="title-font"><%- mtninfo['name'] %> | <%- mtninfo['locality']%>, <%- mtninfo['region']%></h1>
+    <p><%- cam['name'] %></p>
+</div>
+<div>
+    <% if(cam['type'] === 'stream') { %>
+        <iframe id="webcam" style="width: 100%;" src="<%= cam['src'] %>" onload='resizeFrame();'></iframe>
+    <% } %>
+
+    <% if(cam['type'] === 'image') { %>
+        <img id="webimg" style="width: 100%;" src="<%= cam['src'] %>">
+    <% } %>
+
+    <script>
+        window.addEventListener('resize', function() {
+            resizeFrame();
+        });
+    
+        function resizeFrame() {
+            var frame = document.getElementById('webcam');
+            frame.style.height = `${frame.getBoundingClientRect()['width'] * 9/16}px`;
+        }
+    </script>
